@@ -48,3 +48,45 @@
 
 **Was versteht man unter Jack?**
 
+**was hat dieser abgelöst**
+
+<hr>
+
+**Was bedeutet der Einsatz von Jack für die Java-Programmierung?**
+
+<hr>
+
+**In welcher Datei muss Jack aktiviert werden?**
+
+<hr>
+
+**Erkläre den Zusammenhang folgender Begriffe:**
+
+- **HAL**
+- **Linux-Kernel**
+- **Activity-Manager**
+- **Kameradienst**
+- **MediaServer**
+- **SystemServer**
+- **Binder-IPC**
+- **Application Framework**
+
+<hr>
+
+**Erkläre die Kernbestandteile des Application Frameworks jeweils mit einem Satz:**
+
+- **View**
+- **Notification Manager**
+- **Content Provider**
+- **Resource Manager**
+- **Activity Manager**
+
+<hr>
+
+**Was versteht man unter HAXM?**
+
+<hr>
+
+**Was versteht man unter dem Begriff ADB?**
+
+<hr>
