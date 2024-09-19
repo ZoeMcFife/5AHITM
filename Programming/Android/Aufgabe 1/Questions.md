@@ -123,6 +123,7 @@
 **Erkläre den Zusammenhang folgender Begriffe:**
 
 - **HAL**
+    - HAL 9000
 - **Linux-Kernel**
 - **Activity-Manager**
 - **Kameradienst**
@@ -148,5 +149,7 @@
 <hr>
 
 **Was versteht man unter dem Begriff ADB?**
+
+- Android Developer Bridge
 
 <hr>
