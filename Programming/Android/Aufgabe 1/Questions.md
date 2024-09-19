@@ -123,28 +123,46 @@
 **Erkläre den Zusammenhang folgender Begriffe:**
 
 - **HAL**
-    - HAL 9000
+    - ~~Heuristically programmed ALgorithmic Computer 9000~~
+    - Hardware Abstraction Layer
 - **Linux-Kernel**
+    - Kern des Android OS
 - **Activity-Manager**
+    - Zuständig für den Lebenszyklus von Activities und Tasks
 - **Kameradienst**
+    - Bereitet API auf die Kamera Hardware
 - **MediaServer**
+    - Verwaltet audio / video Wiedergabe / Aufnahme
 - **SystemServer**
+    - Zentraler Prozess auf dem der Activity, Window, Package-Manager, usw laufem
 - **Binder-IPC**
+    - Inter Process Communication
+    - Ermöglicht Komunnikation zwischen apps und Systemdiensten
 - **Application Framework**
+    - Schicht über HAL
+    - Bietet API für App Entwicklung
 
 <hr>
 
 **Erkläre die Kernbestandteile des Application Frameworks jeweils mit einem Satz:**
 
 - **View**
+    - Basis Klasse für alle Interface Komponente
 - **Notification Manager**
+    - Klasse um Notifications zu erstellen
 - **Content Provider**
+    - Zugriff auf zentrale Daten repository
 - **Resource Manager**
+    - Tool um Resourcen wie bilder zu importieren, erstellen, und verwenden
 - **Activity Manager**
+    - Klasse die über activities, services und deren prozessen information gibt und interagiert
 
 <hr>
 
 **Was versteht man unter HAXM?**
+
+- Intel Hardware Accelerated Execution Manager
+- Erlaubt hardware acceleration auf der Android VM
 
 <hr>
 
