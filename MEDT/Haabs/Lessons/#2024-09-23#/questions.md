@@ -2,43 +2,91 @@
 
 ## Aufwachsen im Zeitalter eines dynamischen kulturellen und technologischen Wandels
 
+
+
 **Digitalisierung und Konvergenz**
+
+
 
 **Pluralisierung, Diversifizierung und Segmentierung von Publika**
 
+
+
 **Mediatisierung, sprich: die mediale Durchdringung sämtlicher Lebensbereiche**
+
+
 
 **Verdichtung und Beschleunigung der Information**
 
+
+
+
+
 ## Jugendliche als Nutzer tagesaktueller Information
+
+
 
 **Info-Seeker**
 
+
+
 **Info-Avoider**
+
+
 
 **Info-Scanner**
 
+
+
+
+
 ## „Digital Natives“ und konvergente Medienwelt
+
+
 
 **Internetnutzung im Generationenvergleich**
 
+
+
 **Nutzung „klassischer Medien“**
+
+
 
 **„Konvergenzprinzip“**
 
+
+
+
+
 ## „Broadcast Yourself“: Web 2.0 als Bühne
+
+
 
 **„Demokratisierung und Veralltäglichung der Selbstthematisierung“**
 
+
+
 **„Friending“**
+
+
 
 **Bedeutungsgewinn von unthematischer Information**
 
+
+
+
+
 ## Jugendkulturelle Statements im Zugriff auf Medien und Popkultur
+
+
 
 **Bildkommunikation**
 
+
+
 ## Jugendliche Online-Nutzung verändert Informations- und Kommunikationskulturen
+
+
 
 **Veränderung der Schreib-Lese-Kultur**
 
@@ -69,11 +117,14 @@
 - große Partizipationshoffnungen bei Jugendpolitik durch Web 2.0
 - Entäuschung durch Kommentarkultur, Shitstorming
 - sehr vieles passiert heutzutage online
-- 
 
 **Online Social Media als junge Populärkultur**
 
-- 
+- Jugendliche Posten Bilder und co. auf Social Media
+- Selbstdarsteller
+- wettbewerbsorientiert-erfolgsgesellschaftlichen Prinzipie
+- Selfies
+
 
 **Assoziative Informationsgewinnung**
 
