@@ -66,9 +66,14 @@
 
 **Generation Facebook – Hoffnungen und Enttäuschungen**
 
-
+- große Partizipationshoffnungen bei Jugendpolitik durch Web 2.0
+- Entäuschung durch Kommentarkultur, Shitstorming
+- sehr vieles passiert heutzutage online
+- 
 
 **Online Social Media als junge Populärkultur**
+
+- 
 
 **Assoziative Informationsgewinnung**
 
