@@ -7,5 +7,7 @@
         public long Longitude { get; set; }
         public string Event { get; set; } = string.Empty;
         public int Battery { get; set; }
+
+        public Robot? Robot { get; set; }
     }
 }

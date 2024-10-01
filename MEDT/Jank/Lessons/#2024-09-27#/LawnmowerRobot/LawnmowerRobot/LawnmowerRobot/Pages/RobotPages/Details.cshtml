@@ -30,6 +30,20 @@
             @Html.DisplayFor(model => model.Robot.LastUse)
         </dd>
     </dl>
+    
+    <hr />
+
+    <h3>Positions</h3>
+
+    <ul>
+        @foreach (var position in Model.Positions)
+        {
+            <li>@position.Latitude - @position.Longitude | Battery: @position.Battery | Event: @position.Event </li>
+        }
+    </ul>
+
+    <a asp-page="./AddPosition">Add Position</a>
+
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Robot?.Id">Edit</a> |

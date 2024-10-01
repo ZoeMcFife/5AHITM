@@ -19,7 +19,9 @@ namespace LawnmowerRobot.Pages.RobotPages
             _context = context;
         }
 
-      public Robot Robot { get; set; } = default!; 
+        public Robot Robot { get; set; } = default!; 
+
+        public List<Position> Positions { get; set; } = new List<Position>();
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -36,6 +38,10 @@ namespace LawnmowerRobot.Pages.RobotPages
             else 
             {
                 Robot = robot;
+
+                Positions = await (from p in _context.Positions
+                                      where p.Robot.Id == Robot.Id
+                                      select p).ToListAsync();
             }
             return Page();
         }
