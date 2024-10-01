@@ -1,6 +1,7 @@
 using LawnmowerRobot.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using LawnmowerRobot.Data;
 
 namespace LawnmowerRobot
 {
@@ -9,6 +10,8 @@ namespace LawnmowerRobot
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<LawnmowerRobotContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("LawnmowerRobotContext") ?? throw new InvalidOperationException("Connection string 'LawnmowerRobotContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddRazorPages();

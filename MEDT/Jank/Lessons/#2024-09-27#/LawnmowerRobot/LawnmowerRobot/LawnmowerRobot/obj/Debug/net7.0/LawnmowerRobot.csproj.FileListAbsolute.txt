@@ -67,7 +67,6 @@ C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\La
 C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\obj\Debug\net7.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\obj\Debug\net7.0\scopedcss\bundle\LawnmowerRobot.styles.css
 C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\obj\Debug\net7.0\scopedcss\projectbundle\LawnmowerRobot.bundle.scp.css
-C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\obj\Debug\net7.0\LawnmowerRobot.csproj.CopyComplete
 C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\obj\Debug\net7.0\LawnmowerRobot.dll
 C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\obj\Debug\net7.0\refint\LawnmowerRobot.dll
 C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\obj\Debug\net7.0\LawnmowerRobot.pdb
@@ -251,3 +250,5 @@ C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\La
 C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\obj\Debug\net7.0\LawnmowerRobot.sourcelink.json
+C:\GitHub\5AHITM\MEDT\Jank\Lessons\#2024-09-27#\LawnmowerRobot\LawnmowerRobot\LawnmowerRobot\obj\Debug\net7.0\Lawnmowe.2CE05D00.Up2Date
