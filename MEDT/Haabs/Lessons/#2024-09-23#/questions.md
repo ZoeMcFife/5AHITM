@@ -7,6 +7,7 @@
 **Digitalisierung und Konvergenz**
 
 - Zusammenwachsen von Medien und Technologien
+- Digiteles löst Analoges ab
 
 **Pluralisierung, Diversifizierung und Segmentierung von Publika**
 
@@ -87,8 +88,9 @@
 
 **„Friending“**
 
+- "Internet Freunde"
 - Selbstdarstellungstool
-- Keon "Mensch ohne Freunde" sein
+- Kein "Mensch ohne Freunde" sein
 
 **Bedeutungsgewinn von unthematischer Information**
 
