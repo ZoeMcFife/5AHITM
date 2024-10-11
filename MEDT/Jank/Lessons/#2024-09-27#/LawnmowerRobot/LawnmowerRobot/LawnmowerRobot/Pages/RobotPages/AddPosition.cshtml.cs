@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using LawnmowerRobot.Data;
 using LawnmowerRobot.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace LawnmowerRobot.Pages.RobotPages
 {
@@ -23,39 +24,33 @@ namespace LawnmowerRobot.Pages.RobotPages
         [BindProperty]
         public Position Position { get; set; } = new Position();
 
+        public Robot Robot { get; set; } = new Robot();
+        
         public List<SelectListItem> RobotsSelectList { get; set; } = new List<SelectListItem>();
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(int Id)
         {
-            // Fetch all robots from the database and convert them into a select list
-            RobotsSelectList = await _context.Robot
-                .Select(r => new SelectListItem
-                {
-                    Value = r.Id.ToString(),
-                    Text = r.Name
-                })
-                .ToListAsync();
+            Robot = await _context.Robots.FindAsync(Id);
 
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int Id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            // Find the robot by the selected ID
-            var robot = await _context.Robot.FindAsync(Position.Robot.Id);
+            Robot = await _context.Robots.FindAsync(Id);
 
-            if (robot == null)
+            if (Robot == null)
             {
                 ModelState.AddModelError("Position.Robot", "Robot not found.");
                 return Page();
             }
 
-            Position.Robot = robot;
+            Position.Robot = Robot;
             _context.Positions.Add(Position);
             await _context.SaveChangesAsync();
 
