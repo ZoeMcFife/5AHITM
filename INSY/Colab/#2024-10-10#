@@ -1,0 +1,1586 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ZoeMcFife/5AHITM/blob/main/INSY/Colab/%232024-10-10%23\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "1291841e",
+      "metadata": {
+        "id": "1291841e"
+      },
+      "source": [
+        "Exploratory data analysis\n",
+        "=========================\n",
+        "\n",
+        "*This is based on the course of [Fraida Fund](https://colab.research.google.com/github/ffund/ml-notebooks/blob/master/notebooks/1-colab-tour.ipynb) for  NYU Tandon School of Engineering*"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Y7uNHRj0-pTl"
+      },
+      "source": [
+        "In this notebook\n",
+        "----------------\n",
+        "\n",
+        "In this notebook:\n",
+        "\n",
+        "-   We practice using `pandas` to read in and manipulate a data set. (We\n",
+        "    won’t have a separate tutorial on `pandas` - we will learn basic\n",
+        "    `pandas` techniques as we need them.)\n",
+        "-   We learn a basic “recipe” for exploratory data analysis and apply it\n",
+        "    to an example"
+      ],
+      "id": "Y7uNHRj0-pTl"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ap-ybDCb-pTl"
+      },
+      "source": [
+        "Introduction\n",
+        "------------"
+      ],
+      "id": "ap-ybDCb-pTl"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "1qm9r957-pTm"
+      },
+      "source": [
+        "The first step in applying machine learning to a real problem is\n",
+        "*finding* or *creating* an appropriate data set with which to train your\n",
+        "model."
+      ],
+      "id": "1qm9r957-pTm"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8P1L-eP--pTn"
+      },
+      "source": [
+        "### What makes data “good”?\n",
+        "\n",
+        "What makes a good data set?\n",
+        "\n",
+        "-   **Size**: the more *samples* are in the data set, the more examples\n",
+        "    your machine learning model will be able to learn from, and the\n",
+        "    better it will do. Often, a simple machine learning model trained on\n",
+        "    a large data set will outperform a “fancy” model on a small data\n",
+        "    set.\n",
+        "-   **Quality**: Are there *predictive* features in the data? Are no\n",
+        "    values (or very few values) missing, noisy, or incorrect? Is the\n",
+        "    scenario in which the data collected similar to the scenario in\n",
+        "    which your model will be used? These are examples of questions that\n",
+        "    we might ask to evaluate the quality of a data set."
+      ],
+      "id": "8P1L-eP--pTn"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "xwJ9CaT5-pTn"
+      },
+      "source": [
+        "One of the most important principles in machine learning is: **garbage\n",
+        "in, garbage out**. If the data you use to train a machine learning model\n",
+        "is problematic, or not well suited for the purpose, then even the best\n",
+        "model will produce useless predictions."
+      ],
+      "id": "xwJ9CaT5-pTn"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "APWGucRm-pTo"
+      },
+      "source": [
+        "### Purpose of exploratory data analysis\n",
+        "\n",
+        "Once we have identified one or more candidate data sets for a particular\n",
+        "problem, we perform some *exploratory data analysis*. This process helps\n",
+        "us\n",
+        "\n",
+        "-   detect and possibly correct mistakes in the data\n",
+        "-   check our assumptions about the data\n",
+        "-   identify potential relationships between features\n",
+        "-   assess the direction and rough size of relationships between\n",
+        "    features and the target variable\n",
+        "\n",
+        "Exploratory data analysis is important for understanding whether this\n",
+        "data set is appropriate for the machine learning task at hand, and if\n",
+        "any extra cleaning or processing steps are required before we use the\n",
+        "data."
+      ],
+      "id": "APWGucRm-pTo"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "j1k72Ewo-pTo"
+      },
+      "source": [
+        "“Recipe” for exploratory data analysis\n",
+        "--------------------------------------\n",
+        "\n",
+        "We will practice using a basic “recipe” for exploratory data analysis.\n",
+        "\n",
+        "1.  Set down *expectations* about the data\n",
+        "2.  Load data and check that it is loaded correctly\n",
+        "3.  Inspect the data to make sure it is consistent with your\n",
+        "    expectations (“sanity checks”), and clean or filter the data if\n",
+        "    needed\n",
+        "4.  Explore relationships in the data to identify good candidate\n",
+        "    features and target variables\n",
+        "\n",
+        "Every exploratory data analysis is different, as specific\n",
+        "characteristics of the data may lead you to explore different things in\n",
+        "depth. However, this “recipe” can be a helpful starting point."
+      ],
+      "id": "j1k72Ewo-pTo"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "NkyHnBOc-pTp"
+      },
+      "source": [
+        "Example: Brooklyn Bridge pedestrian data set\n",
+        "--------------------------------------------"
+      ],
+      "id": "NkyHnBOc-pTp"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "HXpM7Cvh-pTp"
+      },
+      "source": [
+        "The Brooklyn Bridge is a bridge that connects Brooklyn and Manhattan. It\n",
+        "supports vehicles, pedestrians, and bikers.\n",
+        "\n",
+        "![](https://brooklyneagle.com/wp-content/uploads/2019/01/7-Brooklyn-Bridge-pedestrians-in-bike-lane-to-right-of-white-stripe-January-2019-photo-by-Lore-Croghan-600x397.jpg)"
+      ],
+      "id": "HXpM7Cvh-pTp"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "jr-KyfTY-pTq"
+      },
+      "source": [
+        "Support you are developing a machine learning model to predict the\n",
+        "volume of pedestrian traffic on the Brooklyn Bridge. There is a dataset\n",
+        "available that you think may be useful as training data: [Brooklyn\n",
+        "Bridge Automated Pedestrian Counts\n",
+        "dataset](https://data.cityofnewyork.us/Transportation/Brooklyn-Bridge-Automated-Pedestrian-Counts-Demons/6fi9-q3ta),\n",
+        "from the NYC Department of Transportation.\n",
+        "\n",
+        "We will practice applying the “recipe” for exploratory data analysis to\n",
+        "this data.\n",
+        "\n",
+        "We will use the `pandas` library in Python, which includes many powerful\n",
+        "utilities for managing data. You can refer to the [`pandas`\n",
+        "reference](https://pandas.pydata.org/pandas-docs/stable/reference/index.html)\n",
+        "for more details on the `pandas` functions used in this notebook."
+      ],
+      "id": "jr-KyfTY-pTq"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "49vHmKFV-pTq"
+      },
+      "source": [
+        "### Set down *expectations* about the data\n",
+        "\n",
+        "The first step is to codify your expectations about the data *before*\n",
+        "you look at it:\n",
+        "\n",
+        "-   Read about *methodology* and *data codebook*\n",
+        "-   How many rows and columns are in the data?\n",
+        "-   What does each variable mean? What units are data recorded in? What\n",
+        "    is the expected range or typical value for each column?\n",
+        "-   What variables do you think could be used as target variable? What\n",
+        "    variables could be used as features from which to learn?\n",
+        "-   How was data collected? Identify sampling issues, timeliness issues,\n",
+        "    fairness issues, etc."
+      ],
+      "id": "49vHmKFV-pTq"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "E0XRjdjf-pTq"
+      },
+      "source": [
+        "For the Brooklyn Bridge dataset, you can review the associated\n",
+        "documentation on the NYC Data website:\n",
+        "\n",
+        "-   [NYC Data\n",
+        "    Website](https://data.cityofnewyork.us/Transportation/Brooklyn-Bridge-Automated-Pedestrian-Counts-Demons/6fi9-q3ta)\n",
+        "-   [Data\n",
+        "    dictionary](https://data.cityofnewyork.us/api/views/6fi9-q3ta/files/845905ea-21d4-4ec7-958a-a1a09214513d?download=true&filename=Brooklyn_Bridge_Automated_Pedestrian_Counts_Demonstration_Project_data_dictionary.xlsx)"
+      ],
+      "id": "E0XRjdjf-pTq"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "y2Si8tq7-pTr"
+      },
+      "source": [
+        "### Load data and check that it is loaded correctly\n",
+        "\n",
+        "The next step is to load the data in preparation for our exploratory\n",
+        "data analysis. Then, we’ll check that it is loaded correctly.\n",
+        "\n",
+        "Some examples of the things we’ll look for include:\n",
+        "\n",
+        "-   Does the `DataFrame` have the correct number of rows and columns\n",
+        "    (consistent with our expectations from the first step)?\n",
+        "-   Is the first row of “data” in the `DataFrame` real data, or is it\n",
+        "    column labels that were misinterpreted as data? (Similarly, are the\n",
+        "    column labels actually labels, or are they the first row of data?)\n",
+        "-   Are the data types of every column consistent with our expectations?\n",
+        "\n",
+        "At this stage, we might also do some very basic manipulation of the data\n",
+        "- for example, compute some fields that are derived directly from other\n",
+        "fields. (For example, suppose you have a “distance” field in miles and\n",
+        "you wanted to convert it to meters - you could do that here!)"
+      ],
+      "id": "y2Si8tq7-pTr"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "PrIp6SYL-pTr"
+      },
+      "source": [
+        "First, we will import some useful libraries:\n",
+        "\n",
+        "-   In Python - libraries add powerful functionality\n",
+        "-   You can import an entire library (`import foo`) or part\n",
+        "    (`from foo import bar`)\n",
+        "-   You can define a nickname, which you will use to call functions of\n",
+        "    these libraries (many libraries have “conventional” nicknames)\n",
+        "\n",
+        "`pandas` is a popular Python library for working with data. It is\n",
+        "conventionally imported with the `pd` nickname."
+      ],
+      "id": "PrIp6SYL-pTr"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "XrFqEsj3-pTr"
+      },
+      "outputs": [],
+      "source": [
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "\n",
+        "# set up notebook to show all outputs, not only last one\n",
+        "from IPython.core.interactiveshell import InteractiveShell\n",
+        "InteractiveShell.ast_node_interactivity = \"all\""
+      ],
+      "id": "XrFqEsj3-pTr"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "IE9SS-Lv-pTs"
+      },
+      "source": [
+        "Now we are ready to read in our data!\n",
+        "\n",
+        "The main type of data structure in `pandas` is a `DataFrame`, which\n",
+        "organizes data into a 2D table, like a spreadsheet. Unlike a `numpy`\n",
+        "array, however, each column in a `DataFrame` can have different data\n",
+        "types - for example, you can have a string column, an integer column,\n",
+        "and a float column all in the same `DataFrame`.\n",
+        "\n",
+        "(The other major type of data in `pandas` is a `Series`, which is like a\n",
+        "1D array- any individual row or column from a `DataFrame` will be a\n",
+        "`Series`.)"
+      ],
+      "id": "IE9SS-Lv-pTs"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "YFa0wBi4-pTs"
+      },
+      "source": [
+        "You *can* create a `DataFrame` or a `Series` “by hand” - for example,\n",
+        "try\n",
+        "\n",
+        "``` python\n",
+        "pd.Series([1,2,3,99])\n",
+        "```\n",
+        "\n",
+        "or\n",
+        "\n",
+        "``` python\n",
+        "pd.DataFrame({'fruit': ['apple', 'banana', 'kiwi'], 'cost': [0.55, 0.99, 1.24]})\n",
+        "```"
+      ],
+      "id": "YFa0wBi4-pTs"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "qWxfaEqO-pTt"
+      },
+      "source": [
+        "But usually, we’ll read in data from a file.\n",
+        "\n",
+        "Our data for this Brooklyn Bridge example is in CSV format, so will use\n",
+        "the `read_csv` function in `pandas` to read in our data. This function\n",
+        "accepts a URL or a path to a file, and will return our data as a\n",
+        "`DataFrame`.\n",
+        "\n",
+        "Function documentation: [pandas\n",
+        "reference](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)\n",
+        "\n",
+        "``` python\n",
+        "pandas.read_csv(filepath_or_buffer,\n",
+        "    sep=',', header='infer',\n",
+        "    names=None,\n",
+        "    ...)\n",
+        "```\n",
+        "\n",
+        "`read_csv` is for “flat” text files, where each data point is on another\n",
+        "row, and the fields in a row are separated by some delimiter\n",
+        "(e.g. comma). Other pandas functions exist for loading other kinds of\n",
+        "data (read from database, Excel file, etc.)"
+      ],
+      "id": "qWxfaEqO-pTt"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "WpLh8_-t-pTt"
+      },
+      "outputs": [],
+      "source": [
+        "url = 'https://data.cityofnewyork.us/api/views/6fi9-q3ta/rows.csv?accessType=DOWNLOAD'\n",
+        "df = pd.read_csv(url)"
+      ],
+      "id": "WpLh8_-t-pTt"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "g1SACvP5-pTt"
+      },
+      "source": [
+        "We will want to verify that the data was loaded correctly. For *tabular*\n",
+        "data, we can start by looking at the first few rows of data or the last\n",
+        "few rows of data with the `head` and `tail` functions, respectively.\n",
+        "(For data that is not tabular, such as image, text, or audio data, we\n",
+        "would similarly start by looking at some samples.)"
+      ],
+      "id": "g1SACvP5-pTt"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "40u1AP6p-pTt"
+      },
+      "outputs": [],
+      "source": [
+        "df.head()"
+      ],
+      "id": "40u1AP6p-pTt"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "nZwpLiaW-pTt"
+      },
+      "outputs": [],
+      "source": [
+        "df.tail()"
+      ],
+      "id": "nZwpLiaW-pTt"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "U0nGgUqF-pTt"
+      },
+      "source": [
+        "We can also get a few random rows:"
+      ],
+      "id": "U0nGgUqF-pTt"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "OT6LiUnK-pTu"
+      },
+      "outputs": [],
+      "source": [
+        "df.sample(5)"
+      ],
+      "id": "OT6LiUnK-pTu"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "6YqwRlxw-pTu"
+      },
+      "source": [
+        "Looking at some rows can help us spot obvious problems with data\n",
+        "loading. For example, suppose we had tried to read in the data using a\n",
+        "tab delimiter to separate fields on the same row, instead of a comma."
+      ],
+      "id": "6YqwRlxw-pTu"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "k7m6PE0t-pTu"
+      },
+      "outputs": [],
+      "source": [
+        "df_bad  = pd.read_csv(url, sep='\\t')\n",
+        "df_bad.head()"
+      ],
+      "id": "k7m6PE0t-pTu"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7lnguspA-pTu"
+      },
+      "source": [
+        "This “bad” version of the `DataFrame` has only a single column (because\n",
+        "it believes tabs are used to separate fields in the same row, when\n",
+        "actually commas are used). The variable names are combined together into\n",
+        "one long column name. By looking at the first few rows of data, we can\n",
+        "spot this obvious error.\n",
+        "\n",
+        "Here is another example of a “bad” `DataFrame`. Suppose we tell\n",
+        "`read_csv` that the data file itself does not have a header row at the\n",
+        "top, with column names in it; instead, we supply column names ourselves."
+      ],
+      "id": "7lnguspA-pTu"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "HYHMsCWy-pTv"
+      },
+      "outputs": [],
+      "source": [
+        "col_names = [\"hour_beginning\", \"location\", \"Pedestrians\", \"Towards Manhattan\",\n",
+        "    \"Towards Brooklyn\", \"weather_summary\", \"temperature\", \"precipitation\",\n",
+        "    \"lat\", \"long\", \"events\", \"Location1\"]\n",
+        "df_bad  = pd.read_csv(url, header=None, names=col_names)\n",
+        "df_bad.head()"
+      ],
+      "id": "HYHMsCWy-pTv"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8-KXzVu9-pTv"
+      },
+      "source": [
+        "In this example, the first row in the file *is* actually a column\n",
+        "header, and we mistakenly read it in as data. (A similar problem can\n",
+        "occur in reverse - if we told `read_csv` that the first row *is* a\n",
+        "header when it is not, then our “column labels” would actually be the\n",
+        "first row of data.)"
+      ],
+      "id": "8-KXzVu9-pTv"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "sIZ_2Rt5-pTv"
+      },
+      "source": [
+        "We should always check the shape of the data frame - the number of rows\n",
+        "and columns. This, too, should be checked against our assumptions about\n",
+        "the data (in this case, what we know from the NYC Data website.)"
+      ],
+      "id": "sIZ_2Rt5-pTv"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "8ms3fgs6-pTv"
+      },
+      "outputs": [],
+      "source": [
+        "df.shape"
+      ],
+      "id": "8ms3fgs6-pTv"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "AyPWbFMA-pTw"
+      },
+      "source": [
+        "Check the names of the columns and their data types:"
+      ],
+      "id": "AyPWbFMA-pTw"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "_dYWDSkz-pTw"
+      },
+      "outputs": [],
+      "source": [
+        "df.columns\n",
+        "df.dtypes"
+      ],
+      "id": "_dYWDSkz-pTw"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "np8-zHjt-pTw"
+      },
+      "source": [
+        "The main data types we’ll see most often are `int64` (integer),\n",
+        "`float64` (numeric), `bool` (True or False), or `object` (which includes\n",
+        "string)."
+      ],
+      "id": "np8-zHjt-pTw"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "4OPTyVLu-pTw"
+      },
+      "source": [
+        "We can also get a quick summary with `info()`;"
+      ],
+      "id": "4OPTyVLu-pTw"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "IBfQwEf6-pTw"
+      },
+      "outputs": [],
+      "source": [
+        "df.info()"
+      ],
+      "id": "IBfQwEf6-pTw"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "NoyxS-71-pTx"
+      },
+      "source": [
+        "`pandas` infers the data type of each column automatically from the\n",
+        "contents of the data.\n",
+        "\n",
+        "If the data type of a column is not what you expect it to be, this can\n",
+        "often be a signal that the data needs cleaning. For example, if you\n",
+        "expect a column to be numeric and it is read in as non-numeric, this\n",
+        "indicates that there are probably some samples that include a\n",
+        "non-numeric value in that column. (The [NYC Data\n",
+        "website](https://data.cityofnewyork.us/Transportation/Brooklyn-Bridge-Automated-Pedestrian-Counts-Demons/6fi9-q3ta)\n",
+        "indicates what type of data *should* be in each column, so you should\n",
+        "reference that when checking this output. )"
+      ],
+      "id": "NoyxS-71-pTx"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ffZNYbRl-pTx"
+      },
+      "source": [
+        "We have a date/time column (`hour_beginning`) that was read in as a\n",
+        "string. Let’s take a closer look at that. We can get one column of data\n",
+        "either using a notation like a dictionary, as in\n",
+        "\n",
+        "``` python\n",
+        "df['hour_beginning']\n",
+        "```\n",
+        "\n",
+        "or using class attribute-like notation, as in\n",
+        "\n",
+        "``` python\n",
+        "df.hour_beginning\n",
+        "```\n",
+        "\n",
+        "(either one returns exactly the same thing!) (Note that if the column\n",
+        "name includes spaces, you can only use the notation with the brackets,\n",
+        "since it encloses the column name in quotes.)"
+      ],
+      "id": "ffZNYbRl-pTx"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "va3EDRgr-pTx"
+      },
+      "source": [
+        "`pandas` includes a `to_datetime` function to convert this string to a\n",
+        "“native” date/time format, so we can use that now:"
+      ],
+      "id": "va3EDRgr-pTx"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "2pBH9nJy-pTx"
+      },
+      "outputs": [],
+      "source": [
+        "df['hour_beginning'] = pd.to_datetime(df['hour_beginning'])\n",
+        "df.info()"
+      ],
+      "id": "2pBH9nJy-pTx"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "9OymsIBL-pTy"
+      },
+      "source": [
+        "You may notice that the `hour_beginning` variable includes the full date\n",
+        "and time in one field. For our analysis, it would be more useful to have\n",
+        "separate fields for the date, month, day of the week, and hour.\n",
+        "\n",
+        "We can create these additional fields by assigning the desired value to\n",
+        "them directly - then, observe the effect:"
+      ],
+      "id": "9OymsIBL-pTy"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "PzDO6oNf-pTy"
+      },
+      "outputs": [],
+      "source": [
+        "df['hour'] = df['hour_beginning'].dt.hour\n",
+        "df['month'] = df['hour_beginning'].dt.month\n",
+        "df['date'] = df['hour_beginning'].dt.date\n",
+        "df['day_name'] = df['hour_beginning'].dt.day_name()\n",
+        "\n",
+        "df.head()"
+      ],
+      "id": "PzDO6oNf-pTy"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "AUCrS8ls-pTz"
+      },
+      "source": [
+        "### Inspect (and possibly clean/filter) the data\n",
+        "\n",
+        "Now we are ready to inspect the data.\n",
+        "\n",
+        "Some examples of the things we’ll look for include:\n",
+        "\n",
+        "-   Are there missing values? There may be rows *in* the data where some\n",
+        "    or all fields are missing (which can be denoted as None, NaN, or\n",
+        "    even 0 or -1 - which can be misleading when 0 or -1 are also valid\n",
+        "    values for that field.) There may also be rows *not in* the data,\n",
+        "    that we expect *should be* in the data.\n",
+        "-   For numeric fields: Is the min and max of each field consistent with\n",
+        "    our expectation? Is the median consistent with our expectation?\n",
+        "-   For non-numeric fields: Are the number of unique values in each\n",
+        "    field consistent with our expectations? Are the values of the factor\n",
+        "    levels (where these can reasonably be assessed) described\n",
+        "    consistently throughout the data?\n",
+        "-   Are the relationships *between* variables consistent with our\n",
+        "    expectations? (We can evaluate this visually, and also by looking at\n",
+        "    summary statistics.)\n",
+        "-   If the data is a time series, is the trend of each variable over\n",
+        "    time consistent with our expectations?\n",
+        "\n",
+        "For many of these “sanity checks”, we will need some *domain knowledge*.\n",
+        "It’s hard to have reasonable expectations about the values in the data\n",
+        "if you do not understand the topic that the data relates to."
+      ],
+      "id": "AUCrS8ls-pTz"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "CuJC5Ryd-pTz"
+      },
+      "source": [
+        "#### Check whether data is complete"
+      ],
+      "id": "CuJC5Ryd-pTz"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "N_M-WiRm-pTz"
+      },
+      "source": [
+        "Let us start by checking whether the data is complete. First, we’ll\n",
+        "check whether there are any rows in the data where some or all fields\n",
+        "are missing.\n",
+        "\n",
+        "We can see the number of missing values in each column by summing up all\n",
+        "the instances where the `isnull` function returns a True value:"
+      ],
+      "id": "N_M-WiRm-pTz"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "wKkEeMUf-pTz"
+      },
+      "outputs": [],
+      "source": [
+        "df.isnull().sum()"
+      ],
+      "id": "wKkEeMUf-pTz"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "9PdA03Ul-pTz"
+      },
+      "source": [
+        "(Note that this only tells us about missing values that are explicitly\n",
+        "denoted as such - for example, explicit `NaN` values. If a missing value\n",
+        "is coded as something else - like a 0 or -1 - we wouldn’t know unless we\n",
+        "noticed an unusually high frequency of 0 or -1 values.)"
+      ],
+      "id": "9PdA03Ul-pTz"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "bRkEM4M5-pT0"
+      },
+      "source": [
+        "We notice that the majority of rows are missing a value in the `events`\n",
+        "field, which is used to mark dates that are holidays or other special\n",
+        "events. This is reasonable, since most dates do not have any remarkable\n",
+        "events.\n",
+        "\n",
+        "Let’s look at the rows that *do* have a value in the `events` field. To\n",
+        "filter a dataframe, we’ll use the `.loc[]` operator. This accepts either\n",
+        "an index (for example, we can do `df.loc[0]` to see the first record in\n",
+        "the dataframe), an array of indices (for example, `df.loc[[0,1,2]]`), or\n",
+        "an array of boolean values the length of the entire dataframe. That’s\n",
+        "what we’ll use here."
+      ],
+      "id": "bRkEM4M5-pT0"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "eGyyPbDV-pT0"
+      },
+      "outputs": [],
+      "source": [
+        "df.loc[df['events'].notnull()]"
+      ],
+      "id": "eGyyPbDV-pT0"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "uXw50lWI-pT0"
+      },
+      "source": [
+        "We also notice a small number of rows missing weather information. It’s\n",
+        "not clear why these are missing. Let’s take a closer look at some of\n",
+        "those rows, by *filtering* the dataframe to only rows that meet a\n",
+        "specific condition - in this case, that the `temperature` field is\n",
+        "missing."
+      ],
+      "id": "uXw50lWI-pT0"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "bNuZyS-H-pT1"
+      },
+      "outputs": [],
+      "source": [
+        "df.loc[df.temperature.isnull()]"
+      ],
+      "id": "bNuZyS-H-pT1"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "keGC-pH--pT1"
+      },
+      "source": [
+        "We can see that for these particular instances, all of the weather\n",
+        "information is missing. There’s no obvious reason or pattern. We’ll deal\n",
+        "with these soon, when we try to clean/filter the data."
+      ],
+      "id": "keGC-pH--pT1"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_KA_YKVR-pT1"
+      },
+      "source": [
+        "Before we do that, though, let’s check for the *other* kind of missing\n",
+        "data: rows that are missing completely, that we expect *should* be\n",
+        "present.\n",
+        "\n",
+        "In this example, the data is a time series, and we expect that there is\n",
+        "exactly one row of data for every single hour over the time period in\n",
+        "which this data was collected."
+      ],
+      "id": "_KA_YKVR-pT1"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "sDMOyV_m-pT1"
+      },
+      "source": [
+        "Let’s see if the data is complete, or if there are gaps in time.\n",
+        "\n",
+        "First, we will use\n",
+        "[`pd.date_range`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.date_range.html)\n",
+        "to get the list of hour intervals that we expect to find in the dataset.\n",
+        "Then, we will find the difference between this list and the actual list\n",
+        "of hour intervals in the dataset - these are missing intervals."
+      ],
+      "id": "sDMOyV_m-pT1"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "JheosvdQ-pT1"
+      },
+      "outputs": [],
+      "source": [
+        "# get beginning and end of date range\n",
+        "min_dt = df.hour_beginning.min()\n",
+        "max_dt = df.hour_beginning.max()\n",
+        "print(min_dt)\n",
+        "print(max_dt)"
+      ],
+      "id": "JheosvdQ-pT1"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "ocY5qEOX-pT1"
+      },
+      "outputs": [],
+      "source": [
+        "expected_range = pd.date_range(start = min_dt, end = max_dt, freq='H' )\n",
+        "expected_range"
+      ],
+      "id": "ocY5qEOX-pT1"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "z6XKAb8e-pT2"
+      },
+      "outputs": [],
+      "source": [
+        "# then identify the missing hours\n",
+        "missing_hours = expected_range.difference(df['hour_beginning'])\n",
+        "print(missing_hours)"
+      ],
+      "id": "z6XKAb8e-pT2"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "NdCVDx78-pT2"
+      },
+      "source": [
+        "We had the expected number of rows (the output of `shape` matched the\n",
+        "description of the data on the NYC Data website), but the data seems to\n",
+        "be missing samples from August 2018 through December 2018, which is\n",
+        "worth keeping in mind if we decide to use it:"
+      ],
+      "id": "NdCVDx78-pT2"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "hUZw8V9k-pT2"
+      },
+      "outputs": [],
+      "source": [
+        "pd.unique(missing_hours.date)"
+      ],
+      "id": "hUZw8V9k-pT2"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "beltzX8M-pT3"
+      },
+      "source": [
+        "Let’s also check if any hour appears more than once in the data. We can\n",
+        "use `pandas`’s `value_counts` function to find out how many times each\n",
+        "unique value appears in the data:"
+      ],
+      "id": "beltzX8M-pT3"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "BJXsj7wB-pT3"
+      },
+      "outputs": [],
+      "source": [
+        "df['hour_beginning'].value_counts()"
+      ],
+      "id": "BJXsj7wB-pT3"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ufopMDih-pT3"
+      },
+      "source": [
+        "It looks like at least one hour appears twice in the data, which is\n",
+        "unexpected! Let’s use filtering again to find out all of the instances\n",
+        "where that occurs:"
+      ],
+      "id": "ufopMDih-pT3"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "LaRE7-u7-pT3"
+      },
+      "outputs": [],
+      "source": [
+        "hour_counts = df['hour_beginning'].value_counts()\n",
+        "hour_counts.loc[hour_counts > 1]"
+      ],
+      "id": "LaRE7-u7-pT3"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "zceIWPW9-pT7"
+      },
+      "source": [
+        "It seems to happen exactly once. Let’s filter the dataframe to find the\n",
+        "rows corresponding to the duplicate day.\n",
+        "\n",
+        "Here’s a useful clue - we can see that this hour appears twice because\n",
+        "the clock is shifted for Daylight Savings time. (It’s not clear why\n",
+        "there is no duplicate hour for that same event in 2017. Perhaps only one\n",
+        "of those hours is recorded.)"
+      ],
+      "id": "zceIWPW9-pT7"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "t65xLpHl-pT7"
+      },
+      "outputs": [],
+      "source": [
+        "df.loc[df['hour_beginning']==\"2019-11-03 01:00:00\"]"
+      ],
+      "id": "t65xLpHl-pT7"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "nLFKcS8x-pT8"
+      },
+      "source": [
+        "#### Handle missing values"
+      ],
+      "id": "nLFKcS8x-pT8"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "4QmXQl6C-pT8"
+      },
+      "source": [
+        "Now that we have evaluated the “completeness” of our data, we have to\n",
+        "decide what to do about missing values.\n",
+        "\n",
+        "Some machine learning models cannot tolerate data with missing values.\n",
+        "Depending on what *type* of data is missing and *why* it is missing, we\n",
+        "can\n",
+        "\n",
+        "-   drop rows with missing values from the dataset\n",
+        "-   fill in (“impute”) the missing values with some value: a 0, the mode\n",
+        "    of that column, the median of that column, or forward/back fill data\n",
+        "    from the nearest row that is not missing"
+      ],
+      "id": "4QmXQl6C-pT8"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "lJ0T51t--pT8"
+      },
+      "source": [
+        "For this data, let’s try the forward/back fill method. This makes some\n",
+        "sense because the data has a logical order in time, and the missing\n",
+        "value - weather - changes relatively slowly with respect to time. We can\n",
+        "expect that the weather at any given hour is probably similar to the\n",
+        "weather in the previous (or next) hour.\n",
+        "\n",
+        "For this to work, we’ll first have to sort the data by time. (Note that\n",
+        "the data was not sorted originally.)"
+      ],
+      "id": "lJ0T51t--pT8"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "IEGmEtaY-pT8"
+      },
+      "outputs": [],
+      "source": [
+        "df = df.sort_values(by='hour_beginning')\n",
+        "df.head()"
+      ],
+      "id": "IEGmEtaY-pT8"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "M61WqDG3-pT8"
+      },
+      "source": [
+        "We can also “reset” the index now, so that if we ask for `df.loc[0]`\n",
+        "we’ll get the first row in time, and so on."
+      ],
+      "id": "M61WqDG3-pT8"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "VnvVEGag-pT8"
+      },
+      "outputs": [],
+      "source": [
+        "df.reset_index(drop=True, inplace=True)\n",
+        "df.head()"
+      ],
+      "id": "VnvVEGag-pT8"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8mkH8HTT-pT9"
+      },
+      "source": [
+        "Now we can fill in missing data using the `fillna` function\n",
+        "([reference](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html)).\n",
+        "We will fill the missing weather data using the “forward fill” method,\n",
+        "which caries the last valid observation forward to fill in NAs."
+      ],
+      "id": "8mkH8HTT-pT9"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "9bDAK2qt-pT9"
+      },
+      "outputs": [],
+      "source": [
+        "df['temperature'] = df['temperature'].fillna(method=\"ffill\")\n",
+        "df['precipitation'] = df['precipitation'].fillna(method=\"ffill\")\n",
+        "df['weather_summary'] = df['weather_summary'].fillna(method=\"ffill\")\n"
+      ],
+      "id": "9bDAK2qt-pT9"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "CsgU-IFz-pT9"
+      },
+      "source": [
+        "Having imputed missing vaules in the weather-related columns, we can\n",
+        "count the NAs again and find that there are only missing values in the\n",
+        "`events` column."
+      ],
+      "id": "CsgU-IFz-pT9"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "5hvh_eue-pT9"
+      },
+      "outputs": [],
+      "source": [
+        "df.isnull().sum()"
+      ],
+      "id": "5hvh_eue-pT9"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "mXq4KtfG-pT9"
+      },
+      "source": [
+        "#### Validating expectations"
+      ],
+      "id": "mXq4KtfG-pT9"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "iucEkqg7-pT-"
+      },
+      "source": [
+        "Now that we have some idea of the completeness of the data, let’s look\n",
+        "at whether the data values are consistent with our expectations.\n",
+        "\n",
+        "To start, let’s look at summary statistics. The “five number summary” -\n",
+        "extremes (min and max), median, and quartiles -can help us gain a better\n",
+        "understanding of numeric fields in the data, and see whether they have\n",
+        "reasonable values. We can use the `describe` function in `pandas` to\n",
+        "compute this summary."
+      ],
+      "id": "iucEkqg7-pT-"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "kNUbTaBV-pT-"
+      },
+      "outputs": [],
+      "source": [
+        "df.describe()"
+      ],
+      "id": "kNUbTaBV-pT-"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "taphdMV3-pT-"
+      },
+      "source": [
+        "We can only compute those summary statistics for numerical variables.\n",
+        "For categorical variables, we can use `value_counts()` to get frequency\n",
+        "of each value.\n",
+        "\n",
+        "For example, let’s see how often each `weather` condition occurs, and\n",
+        "whether it is reasonable for NYC:"
+      ],
+      "id": "taphdMV3-pT-"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "l11MHMTt-pT-"
+      },
+      "outputs": [],
+      "source": [
+        "df.weather_summary.value_counts()"
+      ],
+      "id": "l11MHMTt-pT-"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Oot7Y8gE-pT-"
+      },
+      "source": [
+        "It’s also useful to verify expected relationships.\n",
+        "\n",
+        "For example, we expect to see precipitation when the weather is rainy.\n",
+        "We can use `groupby` in `pandas` to capture the effect between a\n",
+        "categorical variable (`weather_summary`) and a numerical one,\n",
+        "`precipitation`:"
+      ],
+      "id": "Oot7Y8gE-pT-"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "0GJc7dsf-pT-"
+      },
+      "outputs": [],
+      "source": [
+        "df.groupby('weather_summary')['precipitation'].describe()"
+      ],
+      "id": "0GJc7dsf-pT-"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "nOdMUEF2-pT_"
+      },
+      "source": [
+        "Make special note of the `count` column, which shows us the prevalence\n",
+        "of different weather conditions in this dataset. There are some weather\n",
+        "conditions for which we have very few examples."
+      ],
+      "id": "nOdMUEF2-pT_"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "svaAnzjq-pT_"
+      },
+      "source": [
+        "Similarly, we can validate our expectation of hotter weather in the\n",
+        "summer months:"
+      ],
+      "id": "svaAnzjq-pT_"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "oUlErdMG-pT_"
+      },
+      "outputs": [],
+      "source": [
+        "df.groupby('month')['temperature'].describe()"
+      ],
+      "id": "oUlErdMG-pT_"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "gSv4O2k5-pT_"
+      },
+      "source": [
+        "as well as during the middle of the day:"
+      ],
+      "id": "gSv4O2k5-pT_"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "-tfc4rcG-pT_"
+      },
+      "outputs": [],
+      "source": [
+        "df.groupby('hour')['temperature'].describe()"
+      ],
+      "id": "-tfc4rcG-pT_"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "9s7frYS--pUA"
+      },
+      "source": [
+        "#### Create a pairplot"
+      ],
+      "id": "9s7frYS--pUA"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "BKvY-ubz-pUA"
+      },
+      "source": [
+        "For tabular data with multiple numeric features, it is often useful to\n",
+        "create a *pairplot*. A pairplot shows pairwise relationships between all\n",
+        "numerical variables. It is a useful way to identify variables that have\n",
+        "a relationship."
+      ],
+      "id": "BKvY-ubz-pUA"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "sjqSrnah-pUA"
+      },
+      "source": [
+        "We can create a “default” pairplot with"
+      ],
+      "id": "sjqSrnah-pUA"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "izHkLDjA-pUA"
+      },
+      "outputs": [],
+      "source": [
+        "sns.pairplot(df)"
+      ],
+      "id": "izHkLDjA-pUA"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "VgggNZOQ-pUA"
+      },
+      "source": [
+        "Here, each pane shows one numerical variable on the x-axis and another\n",
+        "numerical variable on the y-axis, so that we can see if a relationship\n",
+        "exists between them. The panes along the diagonal shows the empirical\n",
+        "distribution of values for each feature in this data."
+      ],
+      "id": "VgggNZOQ-pUA"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "A-vsziYa-pUA"
+      },
+      "source": [
+        "But, it is difficult to see anything useful because there is so much\n",
+        "going on in this plot. We can improve things somewhat by:\n",
+        "\n",
+        "-   specifying only the variables we want to include, and exluding\n",
+        "    variables that don’t contain useful information, such as `lat` and\n",
+        "    `long`, and\n",
+        "-   making the points on the plot smaller and partially transparent, to\n",
+        "    help with the overplotting.\n",
+        "\n",
+        "We’ll also change the histograms on the diagonal, which show the\n",
+        "frequency of values for each variable, into a density plot which shows\n",
+        "the same information in a more useful format."
+      ],
+      "id": "A-vsziYa-pUA"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "PTNtR3vC-pUB"
+      },
+      "outputs": [],
+      "source": [
+        "sns.pairplot(df,\n",
+        "             vars=['Pedestrians', 'temperature', 'precipitation', 'hour', 'month'],\n",
+        "             diag_kind = 'kde',\n",
+        "             plot_kws={'alpha':0.5, 'size': 0.1})"
+      ],
+      "id": "PTNtR3vC-pUB"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "BU0kGOiP-pUB"
+      },
+      "source": [
+        "This plot validates the relationship between `temperature` and `hour`,\n",
+        "and between `temperature` and `month`. However, we can also use this\n",
+        "plot to identify useful features - features that appear to be related to\n",
+        "the `target` variable."
+      ],
+      "id": "BU0kGOiP-pUB"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "c2M4YmGh-pUB"
+      },
+      "source": [
+        "### Explore relationships and identify target variable and features"
+      ],
+      "id": "c2M4YmGh-pUB"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Yq5tgJBb-pUB"
+      },
+      "source": [
+        "Finally, since our goal is to train a machine learning model, we want to\n",
+        "identify:\n",
+        "\n",
+        "-   an appropriate target variable - something on which to train our\n",
+        "    model. (Either a direct target variable, or a proxy.)\n",
+        "-   features that are predictive - if there is any noticeable\n",
+        "    relationship between the target variable and any other variable,\n",
+        "    this is likely to be a useful feature.\n",
+        "-   features that are correlated with one another - if two features are\n",
+        "    highly correlated, this presents some difficulty to certain types of\n",
+        "    models, so we’ll want to know about it."
+      ],
+      "id": "Yq5tgJBb-pUB"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "k3l55L26-pUC"
+      },
+      "source": [
+        "The `Pedestrians` variable is the obvious target variable for this\n",
+        "learning problem: it’s exactly the quantity we want to predict."
+      ],
+      "id": "k3l55L26-pUC"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ZyJbhM2p-pUD"
+      },
+      "source": [
+        "To identify potential predictive features among the numeric variables in\n",
+        "the data, we can use the pairplot. Look at the row of the pairplot in\n",
+        "which `Pedestrians` is on the vertical axis, and each of the other\n",
+        "variables in turn is on the horizontal axis. Which of these seem to show\n",
+        "a relationship? (Note: the relationship does not necessarily need to be\n",
+        "a linear relationship.)"
+      ],
+      "id": "ZyJbhM2p-pUD"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "KI8cKOuK-pUD"
+      },
+      "source": [
+        "We will also want to evaluate the categorical variables. For example, to\n",
+        "look for a relationship between day of the week and pedestrian volume,\n",
+        "we can group by `day_name`, then call the `describe` function on the\n",
+        "`Pedestrians` column:"
+      ],
+      "id": "KI8cKOuK-pUD"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "aE1yWbvJ-pUE"
+      },
+      "outputs": [],
+      "source": [
+        "df.groupby('day_name')['Pedestrians'].describe()"
+      ],
+      "id": "aE1yWbvJ-pUE"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "PP128dC3-pUE"
+      },
+      "source": [
+        "Similarly, we can see the effect of weather:"
+      ],
+      "id": "PP128dC3-pUE"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "452sLr2I-pUE"
+      },
+      "outputs": [],
+      "source": [
+        "df.groupby('weather_summary')['Pedestrians'].describe()"
+      ],
+      "id": "452sLr2I-pUE"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_32MnFVB-pUE"
+      },
+      "source": [
+        "And the effect of various holidays:"
+      ],
+      "id": "_32MnFVB-pUE"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "zQhrT_Xi-pUE"
+      },
+      "outputs": [],
+      "source": [
+        "df.groupby('events')['Pedestrians'].describe()"
+      ],
+      "id": "zQhrT_Xi-pUE"
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "BoGCQtld-pUF"
+      },
+      "source": [
+        "Now armed with information about these relationships, we can identify\n",
+        "good candidate features for a machine learning model."
+      ],
+      "id": "BoGCQtld-pUF"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3.9.13 ('itp2')",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.9.13"
+    },
+    "vscode": {
+      "interpreter": {
+        "hash": "152200e2ccd6411d8497b614a97aafc99f21ff398a9edf3fadef52bdd57caf02"
+      }
+    },
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
