@@ -1,0 +1,56 @@
+%!Adobe-FontList 1.24
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MinionPro-Regular
+FamilyName:Minion Pro
+StyleName:Regular
+FullName:Minion Pro
+MenuName:Minion Pro
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\GitHub\5AHITM\MEDT\Pirringer\Unterricht\2024-11-06\PLF\PLF_Bunea Folder\Document fonts\MinionPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:218640
+FileModTime:1725353613
+WeightClass:400
+WidthClass:5
+AngleClass:0
+DesignSize:110
+NameArray:0,Mac,4,Minion Pro
+NameArray:0,Win,1,Minion Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Bahnschrift
+FamilyName:Bahnschrift
+StyleName:Regular
+FullName:Bahnschrift
+MenuName:Bahnschrift
+FamilyPrefix:Bahnschrift
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\GitHub\5AHITM\MEDT\Pirringer\Unterricht\2024-11-06\PLF\PLF_Bunea Folder\Document fonts\bahnschrift.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:TrueTypeVariableFont
+FileLength:338468
+FileModTime:1651897158
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Bahnschrift
+NameArray:0,Win,1,Bahnschrift
+NameArray:0,Win,16,Bahnschrift
+%EndFont
+
