@@ -11,6 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.loginlayout.data.SavedUsers;
+import com.example.loginlayout.data.User;
+
 public class LoginActivity extends AppCompatActivity {
 
     Button loginButton;
@@ -47,5 +50,26 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
         );
+    }
+
+    public void Login()
+    {
+        String email = emailLogin.getText().toString();
+        String password = passwordLogin.getText().toString();
+
+        if (email.isEmpty() || password.isEmpty())
+        {
+            return;
+        }
+
+        for (User user : SavedUsers.users)
+        {
+
+        }
+
+
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
+
     }
 }
