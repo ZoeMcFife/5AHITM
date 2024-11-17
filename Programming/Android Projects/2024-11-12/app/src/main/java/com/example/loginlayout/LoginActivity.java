@@ -46,8 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         loginButton.setOnClickListener(v -> {
-                    Intent intent = new Intent(this, DashboardActivity.class);
-                    startActivity(intent);
+                    Login();
                 }
         );
     }
@@ -64,12 +63,16 @@ public class LoginActivity extends AppCompatActivity {
 
         for (User user : SavedUsers.users)
         {
-
+            if (user.getEmail().equals(email) && user.getPassword().equals(password))
+            {
+                Intent intent = new Intent(this, DashboardActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+            }
         }
 
 
-        Intent intent = new Intent(this, DashboardActivity.class);
-        startActivity(intent);
+
 
     }
 }
