@@ -8,7 +8,7 @@
 - z.B.: sehr viele internet Freunde vs wenige echte Freunde
 
 ## Paretoverteilung in Netzwerken
-- **20 %** der Angebote haben **80 %** der Aufmerksamkeit
+- **20 %** der Angebote haben **80 %** der Aufmerksamkeit (analoge welt)
 - bisher: Ökonomie der **Stars** 
 - → Ausweg: Digitalisierung → Chris Anderson und die Theorie des **„Long Tail“** → die **Loser** (alle Geschmäcker) werden bedient 
 - → umfassende Geschäfte mit dem „Long Tail“
@@ -40,6 +40,7 @@
 - betrifft alle Leute, die mit Spezialwissen Geld verdienen
 - Bürgerinitiativen, die sich organisieren und kundig machen (Laienwissen) → viele Communities bilden sich zu tausenden Gegenständen (Interessen)
 - neue Zäsur: **Laienwissen wird zur Konkurrenz von Profiwissen** (Arzt, Rechtsanwalt, etc.) → neue Doxa (= ursprünglich: herrschende Meinung die durch Logos widerlegt wird, Sokrates) durch Selbstorganisation des Meinungswissens der Laien (Filter garantieren Wissensqualität)
+- Weltweite kommunikation von Information 
 
 ## Wikipedia – Qualität
 - hohe Qualität von vielen Wikipediaartikeln
