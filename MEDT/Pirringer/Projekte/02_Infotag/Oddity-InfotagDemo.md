@@ -16,6 +16,10 @@ Das ODDITY Multiplayer Demo ist ein einfaches Vier-Spieler-Close-Quarter-Combat-
   - Schießen und Boosten erzeugen Hitze.
 - Fliegt ein Spieler durch den Ring, erhält er zusätzliches Leben.
 
+![alt text](image-1.png)
+
+*Sonne im Maßstab 1:1, ca. 1 500 000 km entfernt*
+
 ## Wie wird präsentiert? 
 
 Für das Multiplayer Demo werden mehrere PCs werden miteinander im Netzwerk verbunden. Es wird zuerst das Oddity Projekt vorgestellt und falls interesse daliegt, wird es dem Besucher möglich sein, das Multiplayer Demo zu spielen. 
