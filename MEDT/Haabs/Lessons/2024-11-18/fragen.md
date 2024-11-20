@@ -33,4 +33,7 @@
 
 ## Web 4.0 – Das symbiotische Web
 
+- web generiert automatisch content
+
 ## Web 5.0 – Das emotionale Web
+
