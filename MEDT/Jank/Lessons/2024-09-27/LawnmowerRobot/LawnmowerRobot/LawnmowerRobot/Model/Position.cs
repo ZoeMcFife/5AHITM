@@ -8,6 +8,6 @@
         public string Event { get; set; } = string.Empty;
         public int Battery { get; set; }
 
-        public Robot? Robot { get; set; }
+        public virtual Robot? Robot { get; set; }
     }
 }

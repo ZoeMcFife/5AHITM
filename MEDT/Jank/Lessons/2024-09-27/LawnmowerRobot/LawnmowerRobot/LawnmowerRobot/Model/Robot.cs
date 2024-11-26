@@ -7,6 +7,6 @@
         public string Type {  get; set; } = string.Empty;
         public DateTime LastUse { get; set; }
 
-        public List<Position> Position { get; set; } = new List<Position>();
+        public virtual List<Position> Positions { get; set; } = new List<Position>();
     }
 }
