@@ -9,7 +9,7 @@
 ![](image-2.png)
 
 2020: wegen konservative Parteien
-2021: angriffe auf journalisten, versuche die presse zu beeinglussen, ...
+2021: angriffe auf journalisten, versuche die presse zu beeinglussen, ... (corona zeit)
 2023: kein Informationsfreiheitsgesetz 
 2024: fpö oder so
 

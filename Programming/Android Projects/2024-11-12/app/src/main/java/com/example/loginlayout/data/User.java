@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class User implements Parcelable
+public class User implements Parcelable, Parcelable.Creator<User>
 {
     public String username;
     public String email;
@@ -102,4 +102,13 @@ public class User implements Parcelable
         return 31 * username.hashCode() + 31 * email.hashCode() + 31 * password.hashCode();
     }
 
+    @Override
+    public User createFromParcel(Parcel source) {
+        return new User(source);
+    }
+
+    @Override
+    public User[] newArray(int size) {
+        return new User[0];
+    }
 }
