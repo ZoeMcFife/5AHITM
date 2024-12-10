@@ -33,6 +33,9 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
+        SavedUsers.users.add(new User("test", "test", "test"));
+
+
         loginButton = findViewById(R.id.loginButton);
         registerButton = findViewById(R.id.registerButton);
 

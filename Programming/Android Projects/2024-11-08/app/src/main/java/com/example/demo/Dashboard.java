@@ -10,10 +10,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.demo.data.Data;
+import com.example.demo.fragments.MyFragment;
 
 public class Dashboard extends AppCompatActivity {
 
     private TextView txtOutput;
+    private MyFragment fragMyFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class Dashboard extends AppCompatActivity {
 
         //int value = getIntent().getIntExtra("data", 0);
 
+        fragMyFragment = (MyFragment) this.getSupportFragmentManager().findFragmentById(R.id.fragMyFragment);
+
         String value;
         Bundle bundle = getIntent().getExtras();
 
@@ -35,6 +39,7 @@ public class Dashboard extends AppCompatActivity {
         {
             Data data = bundle.getParcelable("data", Data.class);
             value = Integer.toString(data != null ? data.getCount() : 0);
+            fragMyFragment.setData(data);
         }
         else
         {

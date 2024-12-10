@@ -12,12 +12,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.loginlayout.data.User;
+import com.example.loginlayout.fragments.DashboardDataFragment;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    TextView dashboardUsernameText;
-    TextView dashboardEmailText;
-    TextView dashboardPasswordText;
+    DashboardDataFragment dashboardDataFragment;
+
     Button logoutButton;
 
     @Override
@@ -44,13 +44,8 @@ public class DashboardActivity extends AppCompatActivity {
             user = new User("empty", "empty", "empty");
         }
 
-        dashboardUsernameText = findViewById(R.id.dashboardUsernameText);
-        dashboardEmailText = findViewById(R.id.dashboardEmailText);
-        dashboardPasswordText = findViewById(R.id.dashboardPasswordText);
-
-        dashboardUsernameText.setText(user.getUsername());
-        dashboardEmailText.setText(user.getEmail());
-        dashboardPasswordText.setText(user.getPassword());
+        dashboardDataFragment = (DashboardDataFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
+        dashboardDataFragment.setUser(user);
 
         logoutButton = findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(v -> {
