@@ -1,0 +1,16 @@
+Themen im Workshop-Video
+
+Footage-Analyse
+Footage interpretieren
+Audioverstärkung
+Analyse WFM
+Videobegrenzer
+Lumetri
+Vergleichsansicht zum Color Matching
+Vectorscope und WFM für Hauttöne
+Masken bei Effekten
+Audiopegel
+LUFS vs dBFS
+Zielpegel
+Lautheitsradar
+Normalisierung beim Export
