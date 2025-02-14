@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View
         .OnClickListener
 {
     private Button btnNext;
+    private Button buttonSettings;
     private Data value = new Data();
 
     @Override
@@ -35,11 +36,22 @@ public class MainActivity extends AppCompatActivity implements View
         btnNext = findViewById(R.id.btnNext);
 
         btnNext.setOnClickListener(this);
+
+        buttonSettings = findViewById(R.id.buttonSettings);
+        buttonSettings.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, SettingsActivity.class);
+                    startActivity(intent);
+                }
+        );
     }
 
     @Override
     public void onClick(View v)
     {
+        if (v != btnNext)
+            return;
+
         int oldValue = value.getCount();
 
         value.setCount(oldValue + 1);
