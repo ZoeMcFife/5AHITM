@@ -1,6 +1,8 @@
 package com.example.demo;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +14,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.demo.data.Data;
+import com.example.demo.database.ColumnConstants;
+import com.example.demo.database.EventDatabase;
 
 public class MainActivity extends AppCompatActivity implements View
 
@@ -20,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View
     private Button btnNext;
     private Button buttonSettings;
     private Data value = new Data();
+
+    private EventDatabase eventDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,6 +50,23 @@ public class MainActivity extends AppCompatActivity implements View
                     startActivity(intent);
                 }
         );
+
+        eventDatabase = new EventDatabase(this);
+    }
+
+    private void writeDatabase()
+    {
+        SQLiteDatabase db = eventDatabase.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ColumnConstants.TIME, System.currentTimeMillis());
+        values.put(ColumnConstants.EVENT, "MainActivity");
+        db.insert(ColumnConstants.TABLE_NAME, null, values);
+    }
+
+    private void readDatabase()
+    {
+        SQLiteDatabase db = eventDatabase.getReadableDatabase();
+
     }
 
     @Override

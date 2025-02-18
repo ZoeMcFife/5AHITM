@@ -20,6 +20,8 @@ public class DashboardActivity extends AppCompatActivity {
 
     Button logoutButton;
 
+    Button settingsButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -51,6 +53,12 @@ public class DashboardActivity extends AppCompatActivity {
         logoutButton.setOnClickListener(v -> {
             Intent intent = new Intent(DashboardActivity.this, MainActivity.class);
 
+            startActivity(intent);
+        });
+
+        settingsButton = findViewById(R.id.buttonSettings);
+        settingsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, SettingsActivity.class);
             startActivity(intent);
         });
     }

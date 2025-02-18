@@ -1,6 +1,8 @@
 package com.example.loginlayout;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.loginlayout.data.SavedUsers;
 import com.example.loginlayout.data.User;
+import com.example.loginlayout.database.CatDatabase;
+import com.example.loginlayout.database.UserColumnConstants;
 
 public class RegistrationActivity extends AppCompatActivity
 {
@@ -20,6 +24,8 @@ public class RegistrationActivity extends AppCompatActivity
     TextView registerEmail;
     TextView registerPassword;
     Button registerButton;
+
+    private CatDatabase catDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,7 +46,7 @@ public class RegistrationActivity extends AppCompatActivity
 
         registerButton.setOnClickListener(v -> Register());
 
-
+        catDatabase = new CatDatabase(this);
     }
 
     private void Register()
@@ -56,10 +62,25 @@ public class RegistrationActivity extends AppCompatActivity
 
         User user = new User(username, email, password);
 
+
+
+
         Intent intent = new Intent(this, LoginActivity.class);
+
+        addUserToDb(user);
 
         SavedUsers.users.add(user);
 
         startActivity(intent);
+    }
+
+    private void addUserToDb(User user)
+    {
+        SQLiteDatabase db = catDatabase.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(UserColumnConstants.USERNAME_COLUMN, user.getUsername());
+        values.put(UserColumnConstants.EMAIL_COLUMN, user.getEmail());
+        values.put(UserColumnConstants.PASSWORD_COLUMN, user.getPassword());
+        db.insert(UserColumnConstants.USER_TABLE, null, values);
     }
 }

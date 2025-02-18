@@ -1,6 +1,8 @@
 package com.example.loginlayout;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.loginlayout.data.SavedUsers;
 import com.example.loginlayout.data.User;
+import com.example.loginlayout.database.CatDatabase;
+import com.example.loginlayout.database.UserColumnConstants;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
 
     TextView passwordLogin;
     TextView emailLogin;
+
+    private CatDatabase catDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +58,34 @@ public class LoginActivity extends AppCompatActivity {
                     Login();
                 }
         );
+
+        catDatabase = new CatDatabase(this);
     }
+
+    public User ValidateUser(String email, String password) {
+        SQLiteDatabase db = catDatabase.getReadableDatabase();
+        User user = null;
+
+        String query = "SELECT * FROM " + UserColumnConstants.USER_TABLE +
+                " WHERE " + UserColumnConstants.EMAIL_COLUMN + " = ? AND " +
+                UserColumnConstants.PASSWORD_COLUMN + " = ?";
+
+        Cursor cursor = db.rawQuery(query, new String[]{email, password});
+
+        if (cursor.moveToFirst()) {
+            // Extract user details from the cursor
+            String username = cursor.getString(cursor.getColumnIndexOrThrow(UserColumnConstants.USERNAME_COLUMN));
+            String retrievedEmail = cursor.getString(cursor.getColumnIndexOrThrow(UserColumnConstants.EMAIL_COLUMN));
+            String retrievedPassword = cursor.getString(cursor.getColumnIndexOrThrow(UserColumnConstants.PASSWORD_COLUMN));
+
+            user = new User(username, retrievedEmail, retrievedPassword); // Create User object
+        }
+
+        cursor.close();
+        db.close();
+        return user; // Returns User object if found, else null
+    }
+
 
     public void Login()
     {
@@ -64,18 +97,13 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        for (User user : SavedUsers.users)
+        User user = ValidateUser(email, password);
+
+        if (user != null)
         {
-            if (user.getEmail().equals(email) && user.getPassword().equals(password))
-            {
-                Intent intent = new Intent(this, DashboardActivity.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(this, DashboardActivity.class);
+            intent.putExtra("user", user);
+            startActivity(intent);
         }
-
-
-
-
     }
 }
