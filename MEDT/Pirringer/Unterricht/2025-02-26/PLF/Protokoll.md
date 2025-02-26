@@ -34,11 +34,16 @@ SAFE AREAS EBU
 
 ![alt text](image-59.png)
 
+<hr>
+
+
 ## 2. The Critic
 
 Proxy Medien Erstellen
 
 ![alt text](image-12.png)
+
+![alt text](image-62.png)
 
 Adjustment Layers
 
@@ -84,14 +89,89 @@ invertierte maske auf sekundär korrektur
 mit keyframes gesicht getrackt
 
 
+Konsolidation und Transkoridierung
 
+![alt text](image-68.png)
 
+Export:
+
+![alt text](image-63.png)
+
+![alt text](image-64.png)
+
+![alt text](image-65.png)
+
+<hr>
 
 
 ## 3. Szenen.mp4 Teal Orange
- 
-## 4. DSF4066.RAF Lightroom
 
+einstellungsebenen nach Einstellungen
+
+![alt text](image-66.png)
+
+![alt text](image-69.png)
+
+Video Limiter um 5 95 IRE Bereich  einzuhalten
+
+
+
+Weißabgleich Kontrolle pro Einstellung
+
+mit temperature und tint korrigiert
+
+![alt text](image-71.png)
+
+![alt text](image-72.png)
+
+![alt text](image-70.png)
+
+![alt text](image-73.png)
+
+
+PK Einstellung 1
+
+![alt text](image-74.png)
+
+SK Einstellugn 1
+
+![alt text](image-75.png)
+
+![alt text](image-76.png)
+
+![alt text](image-77.png)
+
+
+PK Einstellung 2
+
+![alt text](image-78.png)
+
+SK Einstellung 2
+
+![alt text](image-79.png)
+
+![alt text](image-80.png)
+
+PK Einstellung 3
+
+![alt text](image-81.png)
+
+SK Einstellung 3
+
+![alt text](image-82.png)
+
+Export
+
+![alt text](image-84.png)
+
+![alt text](image-83.png)
+
+![alt text](image-85.png)
+
+<hr>
+
+
+## 4. DSF4066.RAF Lightroom
 
 Primär korrektur
 
@@ -126,6 +206,8 @@ Color Grading
 ![alt text](image-34.png)
 
 export jpg, sRGB
+
+<hr>
 
 ## 5. DSF0947.RAF Lightroom
 
@@ -184,3 +266,5 @@ körnung
 ![alt text](image-54.png)
 
 ![alt text](image-55.png)
+
+export jpg, sRGB
