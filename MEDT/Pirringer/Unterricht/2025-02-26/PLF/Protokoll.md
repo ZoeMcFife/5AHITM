@@ -133,7 +133,7 @@ PK Einstellung 1
 
 ![alt text](image-74.png)
 
-SK Einstellugn 1
+SK Einstellung 1
 
 ![alt text](image-75.png)
 
