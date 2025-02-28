@@ -51,8 +51,10 @@
 </head>
 <body>
 <header>
-    <h1>My Laravel Site</h1>
-    <img src="{{ asset('img/logo.png') }}" alt="Site Logo" height="100" width="100">
+    <a href="{{ url('/') }}">
+        <h1>My Laravel Site</h1>
+        <img src="{{ asset('img/logo.png') }}" alt="Site Logo" height="100" width="100">
+    </a>
 </header>
 
 <div class="content">
