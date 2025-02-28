@@ -22,6 +22,9 @@ public class DashboardActivity extends AppCompatActivity {
 
     Button settingsButton;
 
+    Button viewDataButton;
+    Button addDataButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -59,6 +62,18 @@ public class DashboardActivity extends AppCompatActivity {
         settingsButton = findViewById(R.id.buttonSettings);
         settingsButton.setOnClickListener(v -> {
             Intent intent = new Intent(DashboardActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        });
+
+        viewDataButton = findViewById(R.id.ViewDataButton);
+        viewDataButton.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, ViewDataActivity.class);
+            startActivity(intent);
+        });
+
+        addDataButton = findViewById(R.id.AddDataButton);
+        addDataButton.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, AddDataActivity.class);
             startActivity(intent);
         });
     }
