@@ -42,7 +42,7 @@
 <body>
 <header>
     <h1>My Laravel Site</h1>
-    <img src="/resources/img/logo.png" alt="Site Logo" height="50">
+    <img src="{{ asset('img/logo.png') }}" alt="Site Logo" height="100" width="100">
 </header>
 
 <div class="content">
@@ -50,7 +50,7 @@
 </div>
 
 <footer>
-    <a href="/impressum">Impressum</a> | &copy; {{ date('Y') }}
+    <a href="/impressum">Impressum</a> | &copy; {{ date('Y-M-d') }}
 </footer>
 </body>
 </html>
