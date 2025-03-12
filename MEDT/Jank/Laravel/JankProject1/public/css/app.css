@@ -27,8 +27,14 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+a.title
+{
+    color: white;
+}
+
 a {
-    color: #ffcccc;
+    color: #c70000;
     text-decoration: none;
 }
 a:hover {

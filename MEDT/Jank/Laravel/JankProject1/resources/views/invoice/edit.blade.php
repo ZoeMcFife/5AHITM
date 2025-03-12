@@ -40,5 +40,12 @@
         <button type="submit">Update Invoice</button>
     </form>
 
+    <!-- Delete Button -->
+    <form action="{{ route('invoice.destroy', $invoice) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this invoice?');" style="margin-top: 10px;">
+        @csrf
+        @method('DELETE')
+        <button type="submit" style="color: red;">Delete Invoice</button>
+    </form>
+
     <a href="{{ route('invoice.index') }}">Back to Invoices</a>
 @endsection
