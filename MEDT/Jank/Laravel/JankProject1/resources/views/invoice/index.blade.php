@@ -10,6 +10,28 @@
         <p style="color: green;">{{ session('success') }}</p>
     @endif
 
+    <h2>New fancy table</h2>
+
+    <div class="container">
+        <h2>Laravel DataTable - Tuts Make</h2>
+        <table class="table table-bordered" id="laravel_datatable">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Net Price</th>
+                <th>Gross Price</th>
+                <th>VAT</th>
+                <th>User Clearing</th>
+                <th>Clearing Date</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+    <!--<hr>
+
+    <h2>Old Table</h2>
+
     <table border="1" width="100%" style="margin-top: 20px;">
         <thead>
         <tr>
@@ -42,6 +64,31 @@
                 </td>
             </tr>
         @endforeach
-        </tbody>
+        </tbody>-->
     </table>
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+
+<script>
+    $(document).ready( function ()
+    {
+       $('#laravel_datatable').DataTable(
+           {
+               processing: true,
+               serverSide: true,
+               ajax: "{{url('invoice-list')}}",
+               columns: [
+                   {data: 'name', name: 'Name'},
+                   {data: 'priceNet', name: 'Price Net'},
+                   {data: 'priceGross', name: 'Price Gross'},
+                   {data: 'vat', name: 'VAT'},
+                   {data: 'userClearing', name: 'Clearing'},
+                   {data: 'clearingDate', name: 'Date'}
+               ]
+           }
+       )
+    });
+</script>

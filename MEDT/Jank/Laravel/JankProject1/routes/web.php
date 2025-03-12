@@ -13,3 +13,5 @@ Route::get('test', function() {
 });
 
 Route::resource('/invoice', InvoiceController::class);
+
+Route::get('invoice-list', [InvoiceController::class, 'invoiceList']);
