@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/SubmitData"
+        android:id="@+id/submitData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
@@ -48,7 +48,7 @@
         android:ems="10"
         android:inputType="text"
         android:text="Cat Age"
-        app:layout_constraintBottom_toTopOf="@+id/SubmitData"
+        app:layout_constraintBottom_toTopOf="@+id/submitData"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
