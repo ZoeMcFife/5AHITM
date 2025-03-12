@@ -73,26 +73,59 @@
 
 
 <script>
-    $(document).ready( function ()
-    {
-       $('#laravel_datatable').DataTable(
-           {
-               processing: true,
-               serverSide: true,
-               ajax: "{{url('invoice-list')}}",
-               pageLength: 5,
-               language: {
-                   processing: '<div class="spinner"></div>'
-               },
-               columns: [
-                   { data: 'name', name: 'name' },
-                   { data: 'priceNet', name: 'priceNet' },
-                   { data: 'priceGross', name: 'priceGross' },
-                   { data: 'vat', name: 'vat' },
-                   { data: 'userClearing', name: 'userClearing' },
-                   { data: 'clearingDate', name: 'clearingDate' }
-               ]
-           }
-       )
+    $(document).ready(function () {
+        $('#laravel_datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ url('invoice-list') }}",
+            pageLength: 5,
+            language: {
+                processing: '<div class="spinner"></div>'
+            },
+            columns: [
+                {
+                    data: 'name',
+                    name: 'name',
+                    render: function(data, type, row) {
+                        // Format invoice number as a link to the edit page (adjust the URL as needed)
+                        return '<a href="/invoice/' + row.id + '/edit">' + data + '</a>';
+                    }
+                },
+                { data: 'priceNet', name: 'priceNet' },
+                { data: 'priceGross', name: 'priceGross' },
+                { data: 'vat', name: 'vat' },
+                { data: 'userClearing', name: 'userClearing' },
+                {
+                    data: 'clearingDate',
+                    name: 'clearingDate',
+                    render: function(data, type, row) {
+                        // Format the date as dd.mm.yyyy
+                        if (data) {
+                            var date = new Date(data);
+                            var day = ("0" + date.getDate()).slice(-2);
+                            var month = ("0" + (date.getMonth() + 1)).slice(-2);
+                            var year = date.getFullYear();
+                            return day + "." + month + "." + year;
+                        }
+                        return data;
+                    }
+                }
+            ],
+            columnDefs: [
+                {
+                    targets: 4, // Index for userClearing column
+                    createdCell: function (td, cellData, rowData, row, col) {
+                        if (typeof cellData === 'string' && cellData.trim() === '') {
+                            $(td).css('background-color', 'LightCoral');
+                        } else if (cellData) {
+                            $(td).css('background-color', 'LightGreen');
+                        } else {
+                            $(td).css('background-color', 'LightCoral');
+                        }
+                    }
+                }
+            ]
+        });
     });
+
 </script>
