@@ -80,13 +80,17 @@
                processing: true,
                serverSide: true,
                ajax: "{{url('invoice-list')}}",
+               pageLength: 5,
+               language: {
+                   processing: '<div class="spinner"></div>'
+               },
                columns: [
-                   {data: 'name', name: 'Name'},
-                   {data: 'priceNet', name: 'Price Net'},
-                   {data: 'priceGross', name: 'Price Gross'},
-                   {data: 'vat', name: 'VAT'},
-                   {data: 'userClearing', name: 'Clearing'},
-                   {data: 'clearingDate', name: 'Date'}
+                   { data: 'name', name: 'name' },
+                   { data: 'priceNet', name: 'priceNet' },
+                   { data: 'priceGross', name: 'priceGross' },
+                   { data: 'vat', name: 'vat' },
+                   { data: 'userClearing', name: 'userClearing' },
+                   { data: 'clearingDate', name: 'clearingDate' }
                ]
            }
        )

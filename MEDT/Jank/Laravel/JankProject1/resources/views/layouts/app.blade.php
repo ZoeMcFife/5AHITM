@@ -28,9 +28,7 @@
     @yield('content')
 </div>
 
-<footer>
-    <a href="/impressum">Impressum</a> | &copy; {{ date('Y-M-d') }}
-</footer>
+
 
 <!-- Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
