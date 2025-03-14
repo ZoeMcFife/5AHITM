@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import static android.content.Intent.getIntent;
+import static android.os.Build.VERSION_CODES.R;
+
 import android.os.Bundle;
 import android.widget.TextView;
 

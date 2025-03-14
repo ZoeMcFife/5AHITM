@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity implements View
 
         value.setCount(oldValue + 1);
 
-        Intent intent = new Intent(this, Dashboard.class);
-        intent.putExtra("data", value);
-        startActivity(intent);
+        //Intent intent = new Intent(this, Dashboard.class);
+        //intent.putExtra("data", value);
+        //startActivity(intent);
 
     }
 }
