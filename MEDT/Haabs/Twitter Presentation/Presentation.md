@@ -90,6 +90,14 @@ seit 2013
 
 seit 2015
 
+Oreo: "Dunk in the Dark"
+
+2013 Superbowl - Blackout
+
+"You can still dunk in the dark"
+
+Duolingo 
+
 ## Quellen
 
 Source: https://www.searchlogistics.com/learn/statistics/twitter-user-statistics/
