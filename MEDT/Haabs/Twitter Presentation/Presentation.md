@@ -119,6 +119,32 @@ Oreo: "Dunk in the Dark"
 
 Duolingo 
 
+
+## Buchi erklärungen:
+
+#ShareACoke
+
+virale marketing Kampagne von Coca Cola 
+bilder / tweets über eine cola teilen 
+
+seit 2013 bis heute aktiv noch
+
+#PutACanIt
+
+von redbull --> tweets über red bull dosen die auf dingen und so stehen zb auf ein auto oder so
+
+seit ca. 2014. heute nicht mehr sehr aktiv
+
+Orea: Super 2013 da gab es ein black out (kein strom, dunkelheit)
+
+oreo macht ein tweet : "you can still dunk in the dark" dunken, wie halt man beim superbowl macht, dunken ist auch kekse in milch "dunken". sehr beliebt
+
+duolingo:
+
+verwendet twitter account um so geschichten und so nen scheiß pber ihre charakter zu erstellen
+
+beispiel. die duolingo eule ist gestorben 
+
 ## Quellen
 
 Source: https://www.searchlogistics.com/learn/statistics/twitter-user-statistics/
