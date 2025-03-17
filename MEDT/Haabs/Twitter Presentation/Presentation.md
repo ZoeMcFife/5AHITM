@@ -74,9 +74,28 @@
 
 
 ## Vergleich
+CPC = Cost per Click
+CTR = Click Through Rate
 
-(vergelcich twitter, reddit, instagram)
-(werbekosten, werbeeffetivität)
+Twitter (X)
+Durchschnittlicher CPC: ca. 0,38 USD bzw. ca. 1,20 USD
+CTR: ca. 0,56%
+Vorteil: Schnelle Nutzerinteraktion, besonders effektiv bei "warmen" Zielgruppen
+
+
+Instagram
+Durchschnittlicher CPC: ca. 3,56 USD 
+Zielgruppe: Sehr engagiertes, visuell orientiertes Publikum
+Vorteil: Stark für Markenbildung und Lifestyle-Kampagnen
+Nachteil: Höhere Kosten durch intensiven Wettbewerb
+
+
+Reddit
+Durchschnittlicher CPC: ca. 0,44 USD, optimierbar auf ca. 0,28 USD 
+CTR: zwischen 0,26% und 0,35%
+Vorteil: Kosteneffizient, gezieltes Targeting in spezifischen Subreddits, engagierte Community
+Nachteil: Etwas niedrigere CTR, erfordert authentische, kontextgerechte Inhalte
+
 
 ## Beispiel
 
