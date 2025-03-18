@@ -22,7 +22,7 @@ Breton Manifeste du Surréalisme
 
 
 
- 
+https://www.odetoart.com/blog.php?p=b173,Into%20the%20world%20of%20Salvador%20Dali%20-%20a%20guide%20to%20iconic%20symbols%20in%20his%20art 
 https://www.kunsthaus-artes.de/magazin-blog/was-ist-surrealismus/ 
 https://de.wikipedia.org/wiki/Surrealismus
 https://en.wikipedia.org/wiki/Surrealism 
