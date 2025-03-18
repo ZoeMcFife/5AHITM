@@ -26,3 +26,5 @@ Breton Manifeste du Surréalisme
 https://www.kunsthaus-artes.de/magazin-blog/was-ist-surrealismus/ 
 https://de.wikipedia.org/wiki/Surrealismus
 https://en.wikipedia.org/wiki/Surrealism 
+https://www.studysmarter.de/schule/kunst/kunstgeschichte-epochen/surrealismus/
+https://artvise.me/surrealismus-merkmale-kuenstler-kunstmarkt-rekorde/
