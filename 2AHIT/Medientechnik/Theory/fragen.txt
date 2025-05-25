@@ -1,0 +1,240 @@
+Wiederholungsfragen zu Kapitel 1 Schall
+
+1.	Womit beschäftigt sich die Akustik?
+	
+	Die Akustik beschäftigt sich mit dem Schall, Schallerzeugung, Schallausbreitung, 	Schallmessung.
+
+----------------------------------------------------------------
+
+2.	In welchem Frequenzbereich liegt der menschliche Hörbereich?
+	
+	Im Bereich von 20Hz bis 20kHz
+
+----------------------------------------------------------------
+
+3.	Was ist Infraschall bzw. Ultraschall
+	
+	Der Infraschall ist unterhalb des hörbaren Bereichs <20hz
+	Der Ultraschall ist oberhalb des hörbaren Bereichs >20kHz
+
+----------------------------------------------------------------
+
+4.	Was sieht die Schallausbreitung im Vakuum aus?
+	
+	Im Vakuum gibt es keinen Schall | 4. funktioniert nicht da es kein Medium gibt
+
+----------------------------------------------------------------
+
+5.	Wodurch unterscheidet sich der Ton vom Klang?
+	
+	Ton --> Sinus welle  
+		
+	Klang --> kombination aus Sinuswellen
+
+----------------------------------------------------------------
+		
+6.	Welche Werte eines Tons bestimmen dessen Tonhöhe bzw. dessen Lautstärke?
+	
+	Amplitude --> Lautstärke 
+	Frequenz --> Tonhöhe
+
+----------------------------------------------------------------
+
+7.	Wie wird ein Ton mit 100Hz im Gegensatz zu einem Ton mit 200Hz wahrgenommen?
+	
+	es wird höher wahrgenommen 
+
+----------------------------------------------------------------
+
+8.	Wodurch ist ein harmonischer Klang gekennzeichnet?
+	
+	Frequenzen der Obertöne sind ganzzahlige Vielfache des Grundtones
+
+----------------------------------------------------------------
+
+9.	Was versteht man unter einem Geräusch?
+	
+	Ein Geräusch entsteht durch nichtperiodische Überlagerung von 	Schalldruckschwankungen
+	
+	nicht Sinusformige Schallwelle
+
+----------------------------------------------------------------
+
+10.	In welcher Maßeinheit wird die Lautstärke eines Tons angeben?
+
+	DeziBel --- dB
+
+----------------------------------------------------------------
+
+11.Was bedeutet ein Wert von 0 dB?
+
+	Bei dem Wert von 0dB ist die Hörschwelle festgelegt.
+
+----------------------------------------------------------------
+
+12. Wie wird ein Geräusch mit einem Pegel von 50 dB im Gegensatz zu einem Geräusch mit 60 dB wahrgenommen?
+
+		Ein Geräusch mit 10 dB mehr wird als doppelt so laut wahrgenommen. 
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Wiederholungsfragen zum Kapitel 2 Psychoakustik
+
+1.	Womit beschäftigt sich die Psychoakustik
+	
+	Die Psychoakustik versucht Zusammenhänge zwischen den physikalischen Größen 	eines Signals und den ausgelösten Empfindungen zu erfassen.
+
+----------------------------------------------------------------
+
+2.	Stelle die menschlichen Kenngrößen des Schalls den vom Computer verarbeiteten Kenngrößen gegenüber.
+	 
+	Tonhöhe --> Grundfrequenz
+	Lautstärke --> Amplitude 
+	Klangfarbe --> Frequenzspektrum
+
+----------------------------------------------------------------
+
+3.	Erkläre den Hörvorgang
+
+		uhm keine ahnung? dinge bringen luft zum schwingen ohr empfindet das lmao			Schnecke im Innenohr -->  Hörepfinden --> enthält härchenförmige Sinneszellen --> durch schalldurck verbogen --> information an gehirn weitergeleitet
+
+----------------------------------------------------------------
+
+4.	 Welche Bedeutung kommt der Schnecke im Rahmen des Hörvorgangs   zu?
+	
+	Die Schnecke ist das Organ der Hörempfindung. Sie enthält härchenförmige 		Sinneszellen, die durch den Schalldruck verbogen werden. Die Information wird an 	das Gehirn weitergeleitet.
+
+----------------------------------------------------------------
+
+5.	Erkläre die Raumorientierung durch das Gehör?
+
+	Es ist erkennbar, ob das Signal von vorne oder nach hinten kommt, weil die Ohren 	abstehen oder ob ein Signal von links/rechts kommt durch die zeitverzögerung der 	Wahrnehmung eines Ohres
+
+----------------------------------------------------------------
+
+6.	Wie werden Töne unterschiedlicher Frequenz bei gleichem Schalldruck empfunden?
+	
+	Desto höher die Frequenz desto höher ist der Ton.
+
+----------------------------------------------------------------
+
+7.	In welchem Frequenzbereich ist das menschliche Ohr am empfindlichsten?
+
+	Es ist im Bereich mittlere Frequenz am emfindlichsten.
+
+----------------------------------------------------------------
+
+8.	Wird ein Ton mit doppelter Amplitude als doppelt so laut wahrgenommen?
+	
+	die amplitude muss 10mal höher sein um doppelt so laut zu sein. (Julz wie bist auf 40 gekommen?????) 
+	
+----------------------------------------------------------------
+
+9.	Wie bezeichnet man einen Klang, bei dem die Obertöne ein Vielfaches des Grundtons sind?
+
+	harmonischer Klang
+
+----------------------------------------------------------------
+
+10.	 Kommen reine Töne in der Natur vor?
+
+	nein, nur Elektroakustisch 
+
+----------------------------------------------------------------
+
+11.	Was versteht man unter „Weißem Rauschen“?
+	
+	Geräuschhöhe nicht Feststellbar, unperiodisch, unharmonisch
+
+----------------------------------------------------------------
+
+12.	Warum heißt es „Rosa Rauschen“?
+	
+	Der Name kommt von der Analogie des Lichts, Weißes Rauschen=weißem Licht
+	Rosa Rauschen ensteht wenn man weißes Rauschen Filter (abschwächen Oktavieren)
+	Licht mit geringer Frequenz ist Rot, Rot + Weiß= Rosa
+
+----------------------------------------------------------------
+
+13.	 Haben Geräusche ein kontinuierliches oder ein diskretes Frequenzspektrum?
+	
+	Die Geräusche haben ein kontinuierliches Spektrum.
+
+----------------------------------------------------------------
+
+14.	 Welches Frequenzspektrum haben Töne und Klänge?
+	
+	Sie haben ein diskretes Frequenzspektrum 
+
+15.	 Warum funktioniert die Richtungswahrnehmung im Horizontalbereich erst ab einem bestimmten Frequenzbereich?
+
+	Denn unterhalb von 500 Hz wird der Schall um den Kopf gebeugt.
+
+----------------------------------------------------------------
+
+16.	 Erkläre die Richtungswahrnehmnung auf Horizontaleben?
+
+	Die Auswertung der Unterschiede zwischen Schall zwischen linkem und rechtem Ohr 	wird durch die horizontale Richtung bestimmt. Trifft der Schall seitlich auf so wird ein 	Teil des Schalls abgeschattet. Deshalb ist es auf einem Ohr leiser und auf dem 	anderen lauter.
+
+----------------------------------------------------------------
+
+17.	 Bei welchem Schalleinfallswinkel ist die Laufzeitdiffernez Delta t maximal/minimal
+
+	min: 0° und 180°
+	max: 90°
+
+----------------------------------------------------------------
+
+18.	 Erkläre die Richtungswahrnehmnung auf Vertikalebene?
+
+	Der Schall der auf beiden Ohren eintritt wird als gleich empfunden.
+	Als akustischer Filter wirken die Formen von Kopf und Ohrmuscheln abhängig von der 	Schalleinfallsrichtung.	
+	Bei unterschiedlichen Schalleinfallswinkeln aud der Vertikalebene werden entsprechende richtungs bestimmende Frequenzbänder angehoben und für die Richtungsempfindung ausgewertet
+
+----------------------------------------------------------------
+
+19.	 Erkläre die Entfernungswahrnehmnung.
+	
+	Die Tiefen im Spektrum sind mit größer werdender Entfernung mit einem geringeren 	Pegel vertreten. Deshalb verändert sich die gesamte Lautstärke. Das wird mit einem gespeicherten WErt verglichen um die Entfernung "berechnet"
+
+----------------------------------------------------------------
+
+20.	 Was versteht man unter Hall?
+
+	Wenn Schallereignisee im geschlossenen Raum stattfinden dann nehmen wir nicht nur die direkten Schallquellen wahr, sondern auch das was der Raum reflektiert. 	
+	Dadurch entsteht der Hall
+
+----------------------------------------------------------------
+
+21.	 Erkläre das Gesetz der ersten Wellenfront? Wie wird dieses noch bezeichnet?
+
+	Um richtung zu Bestimmen muss die zweite Wellenfront um 1ms später als die erste eintreffen. 
+	
+	Haaseffekt		Präzedenzeffekt
+
+----------------------------------------------------------------
+
+22.	 Wann tritt Echo auf?
+	
+	zeitverzögerung mehr als ca. 60ms --> ECHO
+
+----------------------------------------------------------------
+	
+23.	 Was betrachtet die geometrische Raumakustik?
+
+	die Veränderung der Richtung des Schalls. 
+
+----------------------------------------------------------------
+
+24.	 Wie ist die Nachhallzeit definiert?
+
+	Die Nachhallzeit ist definiert als die Zeit, in der der Schalldruckpegel nach Abschalten 	der Schallquelle um 60db sinkt.
+
+----------------------------------------------------------------
+
+viel glück 
+o7

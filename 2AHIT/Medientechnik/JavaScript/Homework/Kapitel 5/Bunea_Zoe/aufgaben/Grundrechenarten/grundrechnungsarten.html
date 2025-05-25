@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grundrechenarten</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../indexStyle.css"/>    
+
+    </head>
+
+    <body> 
+        <h1>Grundrechenarten</h1>
+
+        <h2>Calculator</h2>
+        
+        <form id="form">
+            <input type="number" id="num1">
+            <select name="operator" id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="number" id="num2">
+
+            <input type="button" onclick="calculate()" value="calculate">
+
+            <input type="reset" value="Clear">
+        </form>
+
+        <p id="resultMessage">RESULT: </p>
+
+
+        <a href="../../index.html">Home</a>
+
+        <script src="grundrechnungsarten.js"></script>
+        <noscript> Your Web Browser does not support JavaScript!
+        </noscript>         
+    </body>
+</html>

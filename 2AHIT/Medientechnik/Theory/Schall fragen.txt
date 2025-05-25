@@ -1,0 +1,15 @@
+1. Mit dem Phänomen des Schalls
+2. 20Hz bis 20kHz
+3. Ultraschall: > 20kHz Infraschall < 20Hz
+4. funktioniert nicht da es kein Medium gibt
+5. Ton --> Sinus welle / Klang --> kombination aus Sinuswellen
+6. Amplitude --> Lautstärke Frequenz --> Tonhöhe
+7. es wierd höher wahrgenommen
+8. Frequenzen der Obertöne sind ganzzahlige Vielfache des Grundtones
+9. nicht Sinusformige Schallwelle
+10. deziBel dB
+11. Die Hörschwelle ist hier Festgelegt
+12. 10 mal lauter 
+
+
+

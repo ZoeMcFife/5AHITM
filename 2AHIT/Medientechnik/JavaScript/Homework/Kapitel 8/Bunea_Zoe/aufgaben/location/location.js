@@ -1,0 +1,1 @@
+location.replace("https://www.sz-ybbs.ac.at/");

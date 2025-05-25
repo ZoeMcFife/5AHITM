@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kreisfunktion</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../indexStyle.css"/>    
+    </head>
+
+    <body> 
+        <h1>Kreisfunktion</h1>
+        
+        <h2>Circle Calculator</h2>
+        
+        <form id="form">
+            Radius <input type="number" id="radius"> <br>
+
+            Diameter <input type="number" id="diameter" readonly> <br>
+
+            Area <input type="number" id="area" readonly> <br>
+
+            Circumference <input type="number" id="circumference" readonly> <br>
+
+            <input type="button" onclick="calculateAllValues()" value="calculate">
+
+            <input type="reset" value="Clear"> 
+
+            Precision <input type="number" name="rounding" id="precision" placeholder="precision" min="1" value="2">
+        </form>
+        
+        <a href="../../index.html">Home</a>
+
+        <script src="kreisfunktion.js"></script>
+        <noscript> Your Web Browser does not support JavaScript!
+        </noscript> 
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Windrose</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="indexStyle.css"/>    
+    </head>
+
+    <body> 
+        <script src="windrose.js"></script>
+        <noscript> Your Web Browser does not support JavaScript!
+        </noscript> 
+
+        <h1>Windrose</h1>
+
+        <h2>Calculate</h2>
+
+        <form id="calWindrose">
+            <label>Degrees</label>
+            <input type="number" min="0" max="360" id="degrees">
+
+            <label>Circle Division</label>
+            <select name="division" id="division">
+                <option value="4">4</option>
+                <option value="8">8</option>
+                <option value="16">16</option>
+                <option value="32">32</option>
+            </select>
+
+            <br>
+
+            <input type="button" onclick="calculateDirection()" value="Calculate">
+
+            <p id="calWindroseOutput"></p>
+
+            <img src="images/Windwose_.gif" id="windrosePicture">
+        </form>
+    </body>
+</html>

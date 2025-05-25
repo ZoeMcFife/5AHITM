@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Color Wheel</title>
+        <meta charset="utf-8">
+        <meta lang="en-us">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body>
+        <h1>Color Wheel</h1>
+        <h2>The color wheel according to Küppers</h2>
+        <div class="notice">
+            <span>Please select a primary or secondary color from the wheel.</span> <br>
+            <span>This text will also be displayed in the same color.</span>
+        </div>
+        <div id="colorwheelDiv"> 
+            <img src="colorwheel.png" id="colorwheel" usemap="#colorwheelmap">
+
+            <map name="colorwheelmap">
+                <area shape="poly" coords="178,7,292,8,266,101,234,97,202,101" onclick="changeColor('yellow')">
+                <area shape="poly" coords="296,10,397,66,326,136,301,115,273,105" onclick="changeColor('lime')">
+                <area shape="poly" coords="400,71,457,171,363,193,350,194,330,140" onclick="changeColor('green')">
+                <area shape="poly" coords="365,200,460,177,460,288,367,264,370,232,371,206" onclick="changeColor('turqoise')"> 
+                <area shape="poly" coords="365,270,458,296,400,396,333,327,353,300" onclick="changeColor('blue')"> 
+                <area shape="poly" coords="330,330,400,400,297,457,270,365,300,350" onclick="changeColor('dark blue')"> 
+                <area shape="poly" coords="200,368,233,371,266,366,290,460,175,460" onclick="changeColor('slate blue')"> 
+                <area shape="poly" coords="138,332,194,365,169,458,69,400" onclick="changeColor('purple')">
+                <area shape="poly" coords="9,294,101,270,114,300,133,327,65,396" onclick="changeColor('pink')"> 
+                <area shape="poly" coords="7,173,101,197,96,231,100,264,7,289" onclick="changeColor('rose')"> 
+                <area shape="poly" coords="68,68,137,137,117,162,103,192,9,167" onclick="changeColor('red')"> 
+                <area shape="poly" coords="173,8,197,103,167,113,141,133,72,64" onclick="changeColor('orange')">
+            </map>
+        </div>     
+
+        <div id="pickedColorDiv">
+            <h3>Color in RGB</h3>
+            <p id="red">Red:   </p>
+            <p id="green">Green: </p>
+            <p id="blue">Blue:  </p>
+            <p id="selectedRGB"><span class="selectedColor">test</span></p>
+
+            <h3>Color in CMY</h3>
+            <p id="cyan">Cyan: </p>
+            <p id="magenta">Magenta: </p>
+            <p id="yellow">Yellow: </p>
+            <p id="selectedCMY"><span class="selectedColor">test</span></p>
+        </div>
+        <script src="script.js"></script>
+        <noscript>Your browser doesn't have any JavaScript capability.</noscript>
+    </body>
+</html>
