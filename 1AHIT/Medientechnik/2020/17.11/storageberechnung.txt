@@ -1,0 +1,6 @@
+Pixel mal Pixel
+Mal 3 (subpixel) (mal 8 wegen bits wichtig wenn man 10 Bit image verwendet) 
+/ 8
+
+
+

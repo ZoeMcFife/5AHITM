@@ -1,0 +1,95 @@
+h1
+{
+    font-size: 5vh;
+}
+
+h2
+{
+    font-size: 200%;
+}
+
+body
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+}
+
+/* ID-Selector: Darf nur einmal zugewiesen werden*/
+#absatz1
+{
+    background-color: antiquewhite;
+}
+
+/*Klassen-Selector: kann beliebig oft angewiesen werden*/
+
+.absatz_dunkel
+{
+    background-color: goldenrod;
+    color: white;
+}
+
+a
+{
+    text-decoration: none;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/*Pseudo-Klassen*/
+a:link 
+{
+    color: blue;  /*unbesuchter link*/
+}
+
+a:visited
+{
+    color: green;  /*besuchter link*/
+}
+
+a:active
+{
+    color: greenyellow; /*beim clicken*/
+}
+
+a:hover
+{
+    color: orange; /*bei mouse over*/
+}
+
+div
+{
+    color: brown;
+}
+
+span /*inline*/ 
+{
+    color: cornflowerblue;
+}
+
+.marker
+{
+    background-color: darkcyan;
+}
+
+.menu
+{
+    color: black;
+    background-color: blueviolet;
+    width: 25vw;
+    height: 25px;
+
+    transition: 2s;
+    overflow: hidden;
+    /*overflow: scroll;*/
+
+    min-height: 25px;
+    float: left;
+}
+
+.menu:hover
+{
+    background-color: coral;
+    transition: 0.25s;
+    width: 40vw;
+    height: 50px;
+}

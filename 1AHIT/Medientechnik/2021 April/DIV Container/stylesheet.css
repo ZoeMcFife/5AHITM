@@ -1,0 +1,99 @@
+body
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+*
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+#d1
+{
+    background-color: aquamarine;
+    color: black;
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: solid 10px green;
+    box-sizing: border-box; /*standard: content-box*/
+    border-radius: 190px 50px;
+    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /*display: inline-block;*/
+}
+
+
+#d2
+{
+    background: blueviolet;
+    color: white;
+    position: static; /*Standard Setting*/
+    width: 200px;
+    height: 100px;
+    margin-top: 30px;
+  /*  display: inline-block;*/
+}
+
+#d3
+{
+    background-color: darkgoldenrod;
+    color: wheat;
+    width: 269px;
+    height: 100px;
+    position: relative; /*von wo der DIV normalerweise wäre*/
+
+    /*left: 20px;*/
+    /*top: 199px;*/
+    /*bottom: 0px;*/
+    /*right: 20px;*/
+    /*margin: auto;*/
+}
+
+#d4
+{
+    background-color: thistle;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    /*top: 100px;*/
+    left: 50%;
+    bottom: 20px;
+    opacity: 0.8;
+    z-index: 4;
+}
+
+#d5
+{
+    z-index: 3; /*anzeige reihenfolge (etwa wie layers)*/
+    background-color: blanchedalmond;
+    position: absolute;
+    width: 50%;
+    top: 100px;
+    right: 0px;
+}
+
+#d6
+{
+    background-color: hotpink;
+    width: 69px;
+    min-height: 69px;
+    opacity: 0.9;
+    position: fixed;
+    right: 0px;
+    top: 20px;
+    transform: rotate(5deg);
+    box-shadow: 5px 10px 10px black;
+    z-index: 2;
+}
+
+#d0
+{
+    background-color: cornflowerblue;
+    z-index: 1;
+    position: sticky;
+    height: 50px;
+    top: 10px;
+}

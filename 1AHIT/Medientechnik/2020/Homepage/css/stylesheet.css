@@ -1,0 +1,85 @@
+h2
+{
+	color: SlateBlue;
+	padding: 20px;
+}
+
+img
+{
+	border-radius: 25px;
+	padding: 20px;
+
+	/*centers image*/ 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.utility-navigation
+{
+	font-family: Sans-serif;
+}
+
+a.utility-navigation
+{
+	text-decoration: none;
+}
+
+a.utility-navigation:hover
+{
+	color: red;
+}
+
+.pageTitle
+{
+	text-align: center;
+	color: slateBlue;
+	font-family:  Courier New, Courier, monospace;
+	padding: 15px;
+}
+
+.main
+{
+	 text-align: center;
+	 font-family:  Courier New, Courier, monospace;
+}
+
+img.main
+{
+	padding-top: 100px;
+	padding-bottom: 20px;
+	height: 10%;
+	width: 10%;
+}
+
+a.favSitesLinks
+{
+	color: black;
+	font-size: 140%;
+}
+
+#redditIcon
+{
+	height: 6%;
+	width: 6%;
+}
+
+#currentPage
+{
+	color: red;
+}
+
+#homepageBG
+{
+	background-color: #E5B25D;
+}
+
+#hobbiesBG
+{
+	background-color: #9BD1E5;
+}
+
+#favSitesBG
+{
+	background-color: #CFF27E;
+}
