@@ -1,2 +1,0 @@
-Das ist ein Mustertext. Er dient zum Testen des wc-Kommandos.
-Ansonsten hat dieser Text keinen weiteren Sinn.
